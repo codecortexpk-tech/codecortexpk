@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://codecortexpk-tech.github.io/code_cortex/sitemap.xml 
