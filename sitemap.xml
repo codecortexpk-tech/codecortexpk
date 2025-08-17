@@ -9,6 +9,5 @@
     <loc>https://codecortexpk-tech.github.io/codecortexpk/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <Redirect 301 /old-page https://codecortexpk.com/new-page
   </url>
 </urlset>
