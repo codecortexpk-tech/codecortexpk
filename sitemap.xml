@@ -3,30 +3,32 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/</loc>
-    <lastmod>2025-08-21</lastmod>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/index.html</loc>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Example additional pages -->
+  <!-- About Page -->
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/about</loc>
-    <lastmod>2025-08-21</lastmod>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/about.html</loc>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Services Page -->
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/services</loc>
-    <lastmod>2025-08-21</lastmod>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/services.html</loc>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Contact Page -->
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/contact</loc>
-    <lastmod>2025-08-21</lastmod>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/contact.html</loc>
+    <lastmod>2025-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
