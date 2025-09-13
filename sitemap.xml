@@ -1,36 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Homepage -->
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/index.html</loc>
-    <lastmod>2025-09-13</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/</loc>
+    <lastmod>2025-09-14</lastmod>
     <priority>1.0</priority>
   </url>
-
-  <!-- About Page -->
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/about.html</loc>
-    <lastmod>2025-09-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/#about</loc>
+    <lastmod>2025-09-14</lastmod>
     <priority>0.8</priority>
   </url>
-
-  <!-- Services Page -->
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/services.html</loc>
-    <lastmod>2025-09-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/#services</loc>
+    <lastmod>2025-09-14</lastmod>
     <priority>0.8</priority>
   </url>
-
-  <!-- Contact Page -->
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/contact.html</loc>
-    <lastmod>2025-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/#contact</loc>
+    <lastmod>2025-09-14</lastmod>
+    <priority>0.8</priority>
   </url>
-
 </urlset>
