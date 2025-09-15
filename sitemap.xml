@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <!-- Homepage -->
   <url>
     <loc>https://codecortexpk-tech.github.io/codecortexpk/</loc>
@@ -8,8 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Example extra pages (uncomment or add if you create them) -->
-  <!--
+  <!-- Example pages (replace with your actual HTML pages) -->
   <url>
     <loc>https://codecortexpk-tech.github.io/codecortexpk/about.html</loc>
     <lastmod>2025-09-15</lastmod>
@@ -20,3 +20,15 @@
   <url>
     <loc>https://codecortexpk-tech.github.io/codecortexpk/services.html</loc>
     <lastmod>2025-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/contact.html</loc>
+    <lastmod>2025-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
