@@ -2,9 +2,6 @@
 User-agent: *
 Disallow:
 
-# Ensure Google discovers the main pages faster
-Crawl-delay: 5
-
 # Prevent indexing of unnecessary files or folders (optional)
 Disallow: /drafts/
 Disallow: /private/
