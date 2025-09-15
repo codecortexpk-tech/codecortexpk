@@ -1,6 +1,4 @@
-# Allow all search engines to crawl everything
 User-agent: *
 Allow: /
 
-# Location of your sitemap
 Sitemap: https://codecortexpk-tech.github.io/codecortexpk/sitemap.xml
