@@ -6,4 +6,5 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- Add more URLs if you create other pages, e.g. services.html, about.html -->
 </urlset>
