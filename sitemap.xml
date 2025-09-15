@@ -2,24 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://codecortexpk.github.io/</loc>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://codecortexpk.github.io/about</loc>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/about.html</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://codecortexpk.github.io/services</loc>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/services.html</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://codecortexpk.github.io/contact</loc>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/contact.html</loc>
     <lastmod>2025-09-15</lastmod>
-    <p
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
