@@ -1,4 +1,10 @@
+# Allow all search engines to crawl the site
 User-agent: *
 Disallow:
 
+# Link to your sitemap
 Sitemap: https://codecortexpk-tech.github.io/codecortexpk/sitemap.xml
+
+# Optional: If you want to block any test or private pages, you can add lines like:
+# Disallow: /test-page.html
+# Disallow: /drafts/
