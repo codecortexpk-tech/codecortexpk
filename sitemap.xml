@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Homepage -->
   <url>
     <loc>https://codecortexpk-tech.github.io/codecortexpk/</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>1.0</priority>
   </url>
 
-  <!-- Login page (optional for indexing, usually private pages are not indexed) -->
   <url>
     <loc>https://codecortexpk-tech.github.io/codecortexpk/login.html</loc>
     <lastmod>2025-09-15</lastmod>
-    <priority>0.3</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- 404 page (usually not indexed, optional) -->
-  <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/404.html</loc>
-    <lastmod>2025-09-15</lastmod>
-    <priority>0.1</priority>
-  </url>
-
-  <!-- Any other pages you add later can be listed here -->
 </urlset>
