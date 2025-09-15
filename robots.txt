@@ -2,9 +2,13 @@
 User-agent: *
 Disallow:
 
+# Ensure Google discovers the main pages faster
+Crawl-delay: 5
+
+# Prevent indexing of unnecessary files or folders (optional)
+Disallow: /drafts/
+Disallow: /private/
+Disallow: /test.html
+
 # Link to your sitemap
 Sitemap: https://codecortexpk-tech.github.io/codecortexpk/sitemap.xml
-
-# Optional: If you want to block any test or private pages, you can add lines like:
-# Disallow: /test-page.html
-# Disallow: /drafts/
