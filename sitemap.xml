@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Main page -->
   <url>
     <loc>https://codecortexpk-tech.github.io/codecortexpk/</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>1.0</priority>
   </url>
 
+  <!-- Page sections as anchors -->
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/about.html</loc>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/#about</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/services.html</loc>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/#services</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/contact.html</loc>
+    <loc>https://codecortexpk-tech.github.io/codecortexpk/#contact</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>0.8</priority>
   </url>
