@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
 
 Sitemap: https://codecortexpk-tech.github.io/codecortexpk/sitemap.xml
