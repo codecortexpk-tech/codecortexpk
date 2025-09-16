@@ -3,199 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Cortex | Software House in Pakistan</title>
+  <meta name="description" content="Code Cortex - A software house in Pakistan offering Web Development, Mobile Apps, AI, and IT Solutions.">
+  <link rel="icon" href="code_logo.png" type="image/png">
 
-  <!-- ✅ Title -->
-  <title>Code Cortex | Software House in Pakistan | IT & AI Solutions</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- ✅ Meta Description -->
-  <meta name="description" content="Code Cortex (SMC-Pvt.) Ltd. - Leading software house in Attock, Pakistan. We provide web development, mobile apps, AI solutions, smart home automation, and IT services.">
-
-  <!-- ✅ Keywords -->
-  <meta name="keywords" content="Code Cortex, software house Pakistan, IT services, mobile app development, web development, AI solutions, smart home automation, software company, IT solutions, custom software, web design, mobile apps, AI, machine learning, technology services">
-
-  <!-- ✅ Canonical URL -->
-  <link rel="canonical" href="https://codecortexpk-tech.github.io/codecortexpk/">
-
-  <!-- ✅ Open Graph / Social Media -->
-  <meta property="og:title" content="Code Cortex | Software House in Pakistan">
-  <meta property="og:description" content="Web & mobile app development, AI solutions, smart home apps, and IT services by Code Cortex in Pakistan.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://codecortexpk-tech.github.io/codecortexpk/">
-  <meta property="og:image" content="https://codecortexpk-tech.github.io/codecortexpk/assets/logo.png">
-
-  <!-- ✅ Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Code Cortex | Software House in Pakistan">
-  <meta name="twitter:description" content="Providing IT services, web & mobile apps, AI & smart solutions from Pakistan.">
-  <meta name="twitter:image" content="https://codecortexpk-tech.github.io/codecortexpk/assets/logo.png">
-
-  <!-- ✅ Favicon -->
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-
-  <!-- Font Awesome -->
+  <!-- FontAwesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Your original CSS -->
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; background-color: #1c1e26; color: #fff; transition: background 0.5s, color 0.5s; }
-    header { position: sticky; top: 0; background: #2b2e3d; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
-    header h1 { font-size: 1.8rem; }
-    .color-picker { display: flex; gap: 0.5rem; }
-    .color-button { width: 25px; height: 25px; border: none; cursor: pointer; border-radius: 50%; outline: 2px solid white; }
-    section { padding: 3rem 2rem; text-align: center; }
-    .hero h2 { font-size: 5rem; margin-bottom: 1rem; min-height: 5rem; }
-    .hero p { font-size: 1.2rem; color: #ccc; }
-    .cards-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
-    .card { background-color: #2f3243; padding: 1.5rem; border-radius: 10px; width: 280px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s; }
-    .card:hover { transform: scale(1.05); }
-    .card h3 { margin-bottom: 1rem; color: #ffe27d; }
-    .card p { color: #ccc; }
-    .scroll-top { position: fixed; bottom: 25px; right: 25px; background-color: #ff6b6b; border: none; padding: 12px; border-radius: 50%; color: #fff; cursor: pointer; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-    footer { background-color: #2b2e3d; padding: 2rem; text-align: center; color: #aaa; margin-top: 3rem; }
-    @keyframes fadeText { 0% { opacity: 0; transform: translateY(10px); } 50% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-10px); } }
-    #animatedText { animation: fadeText 2s ease-in-out infinite; }
-    .theme1 { background: #1c1e26; color: #fff; }
-    .theme2 { background: #222831; color: #f5f5f5; }
-    .theme3 { background: #2d2f3a; color: #e0e0e0; }
-    .theme1 .card { background-color: #2f3243; }
-    .theme2 .card { background-color: #393e46; }
-    .theme3 .card { background-color: #37394a; }
-    .theme1 footer, .theme2 footer, .theme3 footer { background-color: inherit; }
-    .login-btn { background-color: #ffe27d; color: #000; border: none; padding: 8px 16px; margin-left: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
-    .login-btn:hover { background-color: #ffdd55; }
-    .header-left { display: flex; align-items: center; gap: 15px; }
-    .logo-img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #ffe27d; }
-    .social-bar { position: fixed; top: 50%; left: 10px; transform: translateY(-50%); display: flex; flex-direction: column; gap: 15px; z-index: 200; }
-    .social-bar a { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background-color: #2f3243; border-radius: 50%; color: white; font-size: 20px; text-decoration: none; position: relative; transition: background 0.3s, transform 0.3s; }
-    .social-bar a:hover { background-color: #ffe27d; color: #000; transform: scale(1.1); }
-    .social-bar a span { position: absolute; left: 55px; background-color: #2f3243; color: white; padding: 6px 10px; border-radius: 5px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s, left 0.3s; font-size: 14px; }
-    .social-bar a:hover span { opacity: 1; left: 60px; }
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --primary: #007bff;
+      --card: #f9f9f9;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --primary: #00bcd4;
+      --card: #1e1e1e;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: var(--bg);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("code_logo.png") center/200px no-repeat;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    footer {
+      background: var(--card);
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: var(--bg);
+      color: var(--text);
+    }
+    form button {
+      width: 100%;
+    }
   </style>
 </head>
-<body class="theme1">
+<body>
+  <!-- Header -->
   <header>
-    <div class="header-left">
-      <img src="code_logo.png" alt="Logo" class="logo-img" />
-      <h1>Code Cortex -  IT Solutions</h1>
-    </div>
-    <div class="color-picker">
-      <button class="color-button" style="background:#1c1e26" onclick="changeTheme('theme1')"></button>
-      <button class="color-button" style="background:#222831" onclick="changeTheme('theme2')"></button>
-      <button class="color-button" style="background:#2d2f3a" onclick="changeTheme('theme3')"></button>
-    </div>
-    <button class="login-btn" onclick="window.location.href='login.html'">Admin Login</button>
+    <nav>
+      <div class="logo"><strong>Code Cortex</strong></div>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-adjust"></i></div>
+    </nav>
   </header>
 
-  <section class="hero" id="hero">
-    <h2 id="animatedText">Innovating Ideas.</h2>
-    <p>Explore beautifully designed tech interfaces, modern animations, and a vibrant user experience — all at one place.</p>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Welcome to Code Cortex</h1>
+    <p>Innovative IT Solutions | Web • Mobile • AI</p>
+    <a href="#contact"><button class="btn">Get in Touch</button></a>
   </section>
 
+  <!-- About Section -->
   <section id="about">
     <h2>About Us</h2>
-    <div class="cards-container">
-      <div class="card">
-        <h3>Who We Are</h3>
-        <p>Code Cortex is a passionate design & development team dedicated to creating modern, scalable, and aesthetic digital solutions.</p>
-      </div>
-      <div class="card">
-        <h3>Mission</h3>
-        <p>To innovate and deliver impactful tech experiences through smart designs and seamless performance.</p>
-      </div>
-      <div class="card">
-        <h3>Vision</h3>
-        <p>To become a trusted name in tech industry for startups and businesses seeking growth and transformation.</p>
-      </div>
-    </div>
+    <p>Code Cortex is a software house in Pakistan, delivering cutting-edge IT services. We specialize in building scalable Web, Mobile, and AI-powered solutions tailored to clients’ needs.</p>
   </section>
 
+  <!-- Services Section -->
   <section id="services">
     <h2>Our Services</h2>
-    <div class="cards-container">
+    <div class="card-container">
       <div class="card">
+        <i class="fas fa-laptop-code"></i>
         <h3>Web Development</h3>
-        <p>Responsive, SEO-optimized websites using modern stacks like HTML5, CSS3, JS, React, and more.</p>
+        <p>Responsive and modern websites to grow your business online.</p>
       </div>
       <div class="card">
+        <i class="fas fa-mobile-alt"></i>
         <h3>Mobile Apps</h3>
-        <p>Custom Android & iOS applications with a focus on UI/UX and performance.</p>
+        <p>Cross-platform mobile apps with smooth UI and rich features.</p>
       </div>
       <div class="card">
-        <h3>UI/UX Design</h3>
-        <p>Interactive, engaging interfaces crafted with Figma, Adobe XD, and user-centered principles.</p>
+        <i class="fas fa-robot"></i>
+        <h3>AI Solutions</h3>
+        <p>Smart applications powered by Artificial Intelligence & Machine Learning.</p>
       </div>
       <div class="card">
-        <h3>Maintenance</h3>
-        <p>Regular updates, bug fixing, monitoring, and support for your applications and websites.</p>
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h3>Training</h3>
+        <p>Professional IT training and workshops for individuals and businesses.</p>
       </div>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Us</h2>
-    <div class="cards-container">
-      <div class="card">
-        <h3>Email</h3>
-        <p>codecortexpk@gmail.com</p>
-      </div>
-      <div class="card">
-        <h3>Phone</h3>
-        <p>+923 157 227 688</p>
-      </div>
-      <div class="card">
-        <h3>Location</h3>
-        <p>Pakistan</p>
-      </div>
-    </div>
+    <p>Let’s discuss your project or idea. Fill the form below and we’ll get back to you.</p>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
   </section>
 
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Code Cortex | All Rights Reserved
+    <p>© 2025 Code Cortex. All Rights Reserved.</p>
   </footer>
 
-  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
-
+  <!-- Script -->
   <script>
-    // Dynamic Slogan Rotation
-    const lines = [
-      "Innovating Ideas.",
-      "Crafting Interfaces.",
-      "Accelerating Tech.",
-      "Delivering Experiences.",
-      "Powered by Design.",
-      "Code that Connects."
-    ];
-    const textElement = document.getElementById("animatedText");
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % lines.length;
-      textElement.textContent = lines[index];
-    }, 2000);
-
-    // Theme changer
-    function changeTheme(theme) {
-      document.body.className = theme;
+    function toggleTheme() {
+      const body = document.body;
+      if (body.getAttribute("data-theme") === "dark") {
+        body.removeAttribute("data-theme");
+      } else {
+        body.setAttribute("data-theme", "dark");
+      }
     }
   </script>
-
-  <div class="social-bar">
-    <a href="https://www.linkedin.com/in/code-cortex-a8188b379" target="_blank">
-      <i class="fab fa-linkedin-in"></i>
-      <span>LinkedIn Profile</span>
-    </a>
-    <a href="https://wa.me/923157227688" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-      <span>Chat on WhatsApp</span>
-    </a>
-    <a href="https://www.facebook.com/codecortex" target="_blank">
-      <i class="fab fa-facebook-f"></i>
-      <span>Facebook Page</span>
-    </a>
-    <a href="mailto:codecortexpk@gmail.com">
-      <i class="fas fa-envelope"></i>
-      <span>Send Email</span>
-    </a>
-  </div>
 </body>
 </html>
