@@ -1,145 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code Cortex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Code Cortex | Software House in Pakistan | IT & AI Solutions</title>
+  <meta name="description" content="Code Cortex (SMC-Pvt.) Ltd. - Leading software house in Attock, Pakistan. We provide web development, mobile apps, AI solutions, smart home automation, and IT services.">
+  <meta name="keywords" content="Code Cortex, software house Pakistan, IT services, mobile app development, web development, AI solutions, smart home automation, software company, IT solutions, custom software, web design, mobile apps, AI, machine learning, technology services">
+  <link rel="canonical" href="https://codecortexpk-tech.github.io/codecortexpk/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Code Cortex | Software House in Pakistan">
+  <meta property="og:description" content="Web & mobile app development, AI solutions, smart home apps, and IT services by Code Cortex in Pakistan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codecortexpk-tech.github.io/codecortexpk/">
+  <meta property="og:image" content="https://codecortexpk-tech.github.io/codecortexpk/code_logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Code Cortex | Software House in Pakistan">
+  <meta name="twitter:description" content="Providing IT services, web & mobile apps, AI & smart solutions from Pakistan.">
+  <meta name="twitter:image" content="https://codecortexpk-tech.github.io/codecortexpk/code_logo.png">
+
+  <link rel="icon" href="code_logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background: #1e2a38;
-      color: #fff;
-      padding: 1rem 0;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-    }
-    nav {
-      margin-top: 0.5rem;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    section h2 {
-      margin-bottom: 1rem;
-      color: #1e2a38;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    form input, form textarea {
-      width: 90%;
-      margin: 0.5rem 0;
-      padding: 0.7rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    form button {
-      padding: 0.7rem 1.5rem;
-      background: #1e2a38;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    form button:hover {
-      background: #32465a;
-    }
-    .map iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-      border-radius: 10px;
-    }
-    footer {
-      background: #1e2a38;
-      color: #fff;
-      padding: 1.5rem;
-      text-align: center;
-      position: relative;
-    }
-    .footer a {
-      color: white !important;
-      text-decoration: none;
-    }
-    .social-icons {
-      position: fixed;
-      top: 50%;
-      right: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transform: translateY(-50%);
-    }
-    .social-icons a {
-      background: #1e2a38;
-      color: #fff;
-      padding: 10px;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 18px;
-      transition: background 0.3s;
-    }
-    .social-icons a:hover {
-      background: #32465a;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #1c1e26; color: #fff; line-height: 1.6; }
+
+    /* Header */
+    header { position: sticky; top: 0; background: #2b2e3d; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
+    .header-left { display: flex; align-items: center; gap: 15px; }
+    .logo-img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #ffe27d; }
+    header nav a { margin: 0 10px; color: #fff; text-decoration: none; font-weight: bold; }
+    header nav a:hover { color: #ffe27d; }
+
+    .login-btn { background: #ffe27d; color: #000; border: none; padding: 8px 16px; margin-left: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .login-btn:hover { background-color: #ffdd55; }
+
+    /* Hero */
+    .hero { text-align: center; padding: 5rem 2rem; background: linear-gradient(to right, #1c1e26, #2b2e3d); }
+    .hero h2 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; color: #ccc; margin-bottom: 2rem; }
+    .cta-btn { background: #ff6b6b; color: #fff; padding: 12px 25px; border: none; border-radius: 25px; font-size: 1rem; cursor: pointer; transition: background 0.3s; }
+    .cta-btn:hover { background: #ff4b4b; }
+
+    /* Sections */
+    section { padding: 3rem 2rem; text-align: center; }
+    h2 { margin-bottom: 2rem; font-size: 2rem; color: #ffe27d; }
+
+    /* Cards */
+    .cards-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+    .card { background-color: #2f3243; padding: 1.5rem; border-radius: 10px; width: 280px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s; }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { margin-bottom: 1rem; color: #ffe27d; }
+    .card p { color: #ccc; }
+    .card i { font-size: 2rem; margin-bottom: 1rem; color: #ff6b6b; }
+
+    /* Testimonials */
+    .testimonial { background: #2f3243; padding: 1.5rem; border-radius: 10px; width: 280px; color: #ccc; font-style: italic; }
+    .testimonial h4 { margin-top: 1rem; color: #ffe27d; }
+
+    /* Contact */
+    form { max-width: 500px; margin: 1rem auto; text-align: left; }
+    form input, form textarea { width: 100%; padding: 10px; margin: 8px 0; border-radius: 5px; border: none; }
+    form button { background: #ff6b6b; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    form button:hover { background: #ff4b4b; }
+    iframe { width: 100%; height: 300px; border: none; margin-top: 1rem; border-radius: 10px; }
+
+    /* Footer */
+    footer { background-color: #2b2e3d; padding: 2rem; text-align: center; color: #aaa; margin-top: 3rem; }
+
+    /* Floating Buttons */
+    .float-btn { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 200; }
+    .float-btn a { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; color: #fff; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); transition: 0.3s; }
+    .whatsapp { background: #25D366; }
+    .linkedin { background: #0077b5; }
+    .twitter { background: #1DA1F2; }
+    .facebook { background: #1877f2; }
+    .float-btn a:hover { opacity: 0.8; }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <h1>Code Cortex</h1>
+    <div class="header-left">
+      <img src="code_logo.png" alt="Logo" class="logo-img" />
+      <h1>Code Cortex</h1>
+    </div>
     <nav>
-      <a href="#home">Home</a>
+      <a href="#hero">Home</a>
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="login-btn" onclick="window.location.href='login.html'">Admin Login</button>
   </header>
 
-  <!-- Home -->
-  <section id="home">
-    <h2>Welcome to Code Cortex</h2>
-    <p>Your trusted partner for IT solutions, software development, and digital transformation.</p>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <h2 id="animatedText">Innovating Ideas.</h2>
+    <p>We design & build scalable websites, mobile apps, and AI-driven solutions for businesses worldwide.</p>
+    <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
   </section>
 
   <!-- Services -->
   <section id="services">
     <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">Web Development</div>
-      <div class="card">Mobile App Development</div>
-      <div class="card">Smart Solutions</div>
-      <div class="card">IT Consultancy</div>
+    <div class="cards-container">
+      <div class="card"><i class="fas fa-code"></i><h3>Web Development</h3><p>Responsive, SEO-optimized websites using HTML5, CSS3, JavaScript, and React.</p></div>
+      <div class="card"><i class="fas fa-mobile-alt"></i><h3>Mobile Apps</h3><p>Custom Android & iOS applications with modern UI/UX and smooth performance.</p></div>
+      <div class="card"><i class="fas fa-brain"></i><h3>AI Solutions</h3><p>Smart apps powered by AI & machine learning to automate and innovate business processes.</p></div>
+      <div class="card"><i class="fas fa-headset"></i><h3>Maintenance</h3><p>Regular updates, bug fixes, monitoring, and IT support for all your solutions.</p></div>
     </div>
   </section>
 
   <!-- About -->
   <section id="about">
     <h2>About Us</h2>
-    <p>Code Cortex is a tech-driven company focused on delivering innovative digital solutions. From startups to enterprises, we help businesses grow with the latest technologies and expert strategies.</p>
+    <div class="cards-container">
+      <div class="card"><h3>Who We Are</h3><p>Code Cortex is a software house in Pakistan, passionate about delivering modern and scalable digital solutions.</p></div>
+      <div class="card"><h3>Mission</h3><p>To innovate and deliver impactful tech experiences through smart design and performance.</p></div>
+      <div class="card"><h3>Vision</h3><p>To become a trusted partner for startups and businesses worldwide, driving growth with technology.</p></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="cards-container">
+      <div class="testimonial">"Code Cortex transformed our idea into a working product faster than we imagined." <h4>- Client A</h4></div>
+      <div class="testimonial">"Excellent web and mobile app development service, highly recommended!" <h4>- Client B</h4></div>
+      <div class="testimonial">"Their AI solutions helped us automate and save costs significantly." <h4>- Client C</h4></div>
+    </div>
   </section>
 
   <!-- Contact -->
@@ -154,28 +149,38 @@
     <p style="margin-top:1rem;">Or reach us directly: <br>
       📧 <a href="mailto:codecortexpk@gmail.com">codecortexpk@gmail.com</a> | 📞 <a href="tel:+923157227688">+92 315 722 7688</a>
     </p>
-    <!-- Updated Google Maps Embed for Mehria Town Attock -->
-    <div class="map" style="margin-top:1rem;">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13262.3!2d72.349417!3d33.808167!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.100357191903!2d72.34974281521094!3d33.77170708068201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df212d8d36468d%3A0x6e226ec2a3f8b8df!2sAttock%2C%20Pakistan!5e0!3m2!1sen!2s!4v1694510000000"></iframe>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Code Cortex | All Rights Reserved</p>
+  <footer>
+    &copy; 2025 Code Cortex | All Rights Reserved
   </footer>
 
-  <!-- Floating Social Icons -->
-  <div class="social-icons">
-    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://wa.me/923157227688" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <!-- Floating Buttons -->
+  <div class="float-btn">
+    <a href="https://wa.me/923157227688" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.linkedin.com" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
   </div>
+
+  <script>
+    // Animated hero text
+    const lines = [
+      "Innovating Ideas.",
+      "Crafting Interfaces.",
+      "Accelerating Tech.",
+      "Delivering Experiences.",
+      "Powered by Design.",
+      "Code that Connects."
+    ];
+    const textElement = document.getElementById("animatedText");
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % lines.length;
+      textElement.textContent = lines[index];
+    }, 2000);
+  </script>
 </body>
 </html>
