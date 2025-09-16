@@ -4,42 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- ✅ Title -->
   <title>Code Cortex | Software House in Pakistan | IT & AI Solutions</title>
+
+  <!-- ✅ Meta Description -->
   <meta name="description" content="Code Cortex (SMC-Pvt.) Ltd. - Leading software house in Attock, Pakistan. We provide web development, mobile apps, AI solutions, smart home automation, and IT services.">
+
+  <!-- ✅ Keywords -->
   <meta name="keywords" content="Code Cortex, software house Pakistan, IT services, mobile app development, web development, AI solutions, smart home automation, software company, IT solutions, custom software, web design, mobile apps, AI, machine learning, technology services">
+
+  <!-- ✅ Canonical URL -->
   <link rel="canonical" href="https://codecortexpk-tech.github.io/codecortexpk/">
 
-  <!-- Open Graph -->
+  <!-- ✅ Open Graph / Social Media -->
   <meta property="og:title" content="Code Cortex | Software House in Pakistan">
   <meta property="og:description" content="Web & mobile app development, AI solutions, smart home apps, and IT services by Code Cortex in Pakistan.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://codecortexpk-tech.github.io/codecortexpk/">
   <meta property="og:image" content="https://codecortexpk-tech.github.io/codecortexpk/code_logo.png">
 
-  <!-- Twitter -->
+  <!-- ✅ Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Code Cortex | Software House in Pakistan">
   <meta name="twitter:description" content="Providing IT services, web & mobile apps, AI & smart solutions from Pakistan.">
   <meta name="twitter:image" content="https://codecortexpk-tech.github.io/codecortexpk/code_logo.png">
 
+  <!-- ✅ Favicon -->
   <link rel="icon" href="code_logo.png" type="image/x-icon">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- CSS -->
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body { font-family: 'Segoe UI', sans-serif; background-color: #1c1e26; color: #fff; line-height: 1.6; }
-
-    /* Header */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #1c1e26; color: #fff; transition: background 0.5s, color 0.5s; line-height: 1.6; }
     header { position: sticky; top: 0; background: #2b2e3d; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
-    .header-left { display: flex; align-items: center; gap: 15px; }
-    .logo-img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #ffe27d; }
-    header nav a { margin: 0 10px; color: #fff; text-decoration: none; font-weight: bold; }
-    header nav a:hover { color: #ffe27d; }
-
-    .login-btn { background: #ffe27d; color: #000; border: none; padding: 8px 16px; margin-left: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    header h1 { font-size: 1.5rem; }
+    .color-picker { display: flex; gap: 0.5rem; }
+    .color-button { width: 20px; height: 20px; border: none; cursor: pointer; border-radius: 50%; outline: 2px solid white; }
+    .login-btn { background-color: #ffe27d; color: #000; border: none; padding: 8px 16px; margin-left: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
     .login-btn:hover { background-color: #ffdd55; }
+    .header-left { display: flex; align-items: center; gap: 15px; }
+    .logo-img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #ffe27d; }
 
-    /* Hero */
+    /* Hero Section */
     .hero { text-align: center; padding: 5rem 2rem; background: linear-gradient(to right, #1c1e26, #2b2e3d); }
     .hero h2 { font-size: 3rem; margin-bottom: 1rem; }
     .hero p { font-size: 1.2rem; color: #ccc; margin-bottom: 2rem; }
@@ -58,49 +67,32 @@
     .card p { color: #ccc; }
     .card i { font-size: 2rem; margin-bottom: 1rem; color: #ff6b6b; }
 
-    /* Testimonials */
-    .testimonial { background: #2f3243; padding: 1.5rem; border-radius: 10px; width: 280px; color: #ccc; font-style: italic; }
-    .testimonial h4 { margin-top: 1rem; color: #ffe27d; }
-
-    /* Contact */
-    form { max-width: 500px; margin: 1rem auto; text-align: left; }
-    form input, form textarea { width: 100%; padding: 10px; margin: 8px 0; border-radius: 5px; border: none; }
-    form button { background: #ff6b6b; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-    form button:hover { background: #ff4b4b; }
-    iframe { width: 100%; height: 300px; border: none; margin-top: 1rem; border-radius: 10px; }
-
     /* Footer */
     footer { background-color: #2b2e3d; padding: 2rem; text-align: center; color: #aaa; margin-top: 3rem; }
+    footer a { color: #ffe27d; text-decoration: none; }
 
-    /* Floating Buttons */
-    .float-btn { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 200; }
-    .float-btn a { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; color: #fff; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); transition: 0.3s; }
-    .whatsapp { background: #25D366; }
-    .linkedin { background: #0077b5; }
-    .twitter { background: #1DA1F2; }
-    .facebook { background: #1877f2; }
-    .float-btn a:hover { opacity: 0.8; }
+    /* Floating WhatsApp */
+    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); cursor: pointer; z-index: 200; }
+    .whatsapp-float:hover { background: #1ebe5b; }
   </style>
 </head>
-<body>
-
+<body class="theme1">
   <!-- Header -->
   <header>
     <div class="header-left">
       <img src="code_logo.png" alt="Logo" class="logo-img" />
-      <h1>Code Cortex</h1>
+      <h1>Code Cortex - IT Solutions</h1>
     </div>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="color-picker">
+      <button class="color-button" style="background:#1c1e26" onclick="changeTheme('theme1')"></button>
+      <button class="color-button" style="background:#222831" onclick="changeTheme('theme2')"></button>
+      <button class="color-button" style="background:#2d2f3a" onclick="changeTheme('theme3')"></button>
+    </div>
     <button class="login-btn" onclick="window.location.href='login.html'">Admin Login</button>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
+  <!-- Hero Section -->
+  <section class="hero">
     <h2 id="animatedText">Innovating Ideas.</h2>
     <p>We design & build scalable websites, mobile apps, and AI-driven solutions for businesses worldwide.</p>
     <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
@@ -110,10 +102,26 @@
   <section id="services">
     <h2>Our Services</h2>
     <div class="cards-container">
-      <div class="card"><i class="fas fa-code"></i><h3>Web Development</h3><p>Responsive, SEO-optimized websites using HTML5, CSS3, JavaScript, and React.</p></div>
-      <div class="card"><i class="fas fa-mobile-alt"></i><h3>Mobile Apps</h3><p>Custom Android & iOS applications with modern UI/UX and smooth performance.</p></div>
-      <div class="card"><i class="fas fa-brain"></i><h3>AI Solutions</h3><p>Smart apps powered by AI & machine learning to automate and innovate business processes.</p></div>
-      <div class="card"><i class="fas fa-headset"></i><h3>Maintenance</h3><p>Regular updates, bug fixes, monitoring, and IT support for all your solutions.</p></div>
+      <div class="card">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Responsive, SEO-optimized websites using HTML5, CSS3, JavaScript, and React.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile Apps</h3>
+        <p>Custom Android & iOS applications with modern UI/UX and smooth performance.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-brain"></i>
+        <h3>AI Solutions</h3>
+        <p>Smart apps powered by AI & machine learning to automate and innovate business processes.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-headset"></i>
+        <h3>Maintenance</h3>
+        <p>Regular updates, bug fixes, monitoring, and IT support for all your solutions.</p>
+      </div>
     </div>
   </section>
 
@@ -121,52 +129,41 @@
   <section id="about">
     <h2>About Us</h2>
     <div class="cards-container">
-      <div class="card"><h3>Who We Are</h3><p>Code Cortex is a software house in Pakistan, passionate about delivering modern and scalable digital solutions.</p></div>
-      <div class="card"><h3>Mission</h3><p>To innovate and deliver impactful tech experiences through smart design and performance.</p></div>
-      <div class="card"><h3>Vision</h3><p>To become a trusted partner for startups and businesses worldwide, driving growth with technology.</p></div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="cards-container">
-      <div class="testimonial">"Code Cortex transformed our idea into a working product faster than we imagined." <h4>- Client A</h4></div>
-      <div class="testimonial">"Excellent web and mobile app development service, highly recommended!" <h4>- Client B</h4></div>
-      <div class="testimonial">"Their AI solutions helped us automate and save costs significantly." <h4>- Client C</h4></div>
+      <div class="card">
+        <h3>Who We Are</h3>
+        <p>Code Cortex is a software house in Pakistan, passionate about delivering modern and scalable digital solutions.</p>
+      </div>
+      <div class="card">
+        <h3>Mission</h3>
+        <p>To innovate and deliver impactful tech experiences through smart design and performance.</p>
+      </div>
+      <div class="card">
+        <h3>Vision</h3>
+        <p>To become a trusted partner for startups and businesses worldwide, driving growth with technology.</p>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact">
     <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="4" placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p style="margin-top:1rem;">Or reach us directly: <br>
-      📧 <a href="mailto:codecortexpk@gmail.com">codecortexpk@gmail.com</a> | 📞 <a href="tel:+923157227688">+92 315 722 7688</a>
-    </p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13262.345678901234!2d72.37410!3d33.77311!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s" 
+    <p>Email: <a href="mailto:codecortexpk@gmail.com">codecortexpk@gmail.com</a></p>
+    <p>Phone: <a href="tel:+923157227688">+92 315 722 7688</a></p>
+    <p>Location: Pakistan</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Code Cortex | All Rights Reserved
+    &copy; 2025 Code Cortex | All Rights Reserved  
   </footer>
 
-  <!-- Floating Buttons -->
-  <div class="float-btn">
-    <a href="https://wa.me/923157227688" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.linkedin.com" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
-  </div>
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/923157227688" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <script>
-    // Animated hero text
+    // Dynamic Slogan Rotation
     const lines = [
       "Innovating Ideas.",
       "Crafting Interfaces.",
@@ -181,7 +178,11 @@
       index = (index + 1) % lines.length;
       textElement.textContent = lines[index];
     }, 2000);
+
+    // Theme changer
+    function changeTheme(theme) {
+      document.body.className = theme;
+    }
   </script>
 </body>
 </html>
-
