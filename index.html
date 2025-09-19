@@ -30,28 +30,44 @@
     body { font-family: 'Segoe UI', sans-serif; background-color: #1c1e26; color: #fff; line-height: 1.6; }
 
     /* Header */
-    header { position: sticky; top: 0; background: #2b2e3d; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
+    header { 
+      position: sticky; top: 0; 
+      background: #2b2e3d; 
+      padding: 1rem 2rem; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      z-index: 100; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4); 
+      flex-wrap: wrap; /* allow wrapping on very small screens */
+    }
     .header-left { display: flex; align-items: center; gap: 15px; }
     .logo-img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #ffe27d; }
-    header nav a { margin: 0 10px; color: #fff; text-decoration: none; font-weight: bold; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+    header nav a { margin: 0 5px; color: #fff; text-decoration: none; font-weight: bold; }
     header nav a:hover { color: #ffe27d; }
 
-    .login-btn { background: #ffe27d; color: #000; border: none; padding: 8px 16px; margin-left: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .login-btn, .hiring-btn {
+      border: none; 
+      padding: 8px 14px; 
+      margin-left: 5px; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      font-weight: bold; 
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .login-btn { background: #ffe27d; color: #000; }
     .login-btn:hover { background-color: #ffdd55; }
 
-    /* Flashing Hiring Button */
     .hiring-btn {
-      margin-left: 15px;
-      padding: 8px 16px;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
       background: transparent;
-      animation: flashHiring 1.5s infinite;
+      border: 2px solid #ffe27d;
+      animation: flashText 1.5s infinite;
     }
-    @keyframes flashHiring {
-      0%, 100% { color: #ffcc00; }
-      50% { color: #ffffff; }
+    @keyframes flashText {
+      0%, 100% { color: #ffe27d; border-color: #ffe27d; }
+      50% { color: #ffffff; border-color: #ffffff; }
     }
 
     /* Hero */
@@ -110,8 +126,7 @@
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc75D_w32XojQgjGx0jIU8ffuouAGmHWCPSCwnvrr8t77cDLw/viewform" 
-         target="_blank" class="hiring-btn">🚀 We Are Hiring</a>
+      <button class="hiring-btn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc75D_w32XojQgjGx0jIU8ffuouAGmHWCPSCwnvrr8t77cDLw/viewform', '_blank')">We Are Hiring</button>
     </nav>
     <button class="login-btn" onclick="window.location.href='login.html'">Admin Login</button>
   </header>
