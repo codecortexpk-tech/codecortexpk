@@ -25,6 +25,9 @@
   <link rel="icon" href="code_logo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- AOS Animation CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body { font-family: 'Segoe UI', sans-serif; background-color: #1c1e26; color: #fff; line-height: 1.6; }
@@ -39,7 +42,7 @@
       align-items: center; 
       z-index: 100; 
       box-shadow: 0 4px 10px rgba(0,0,0,0.4); 
-      flex-wrap: wrap; /* allow wrapping on very small screens */
+      flex-wrap: wrap;
     }
     .header-left { display: flex; align-items: center; gap: 15px; }
     .logo-img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #ffe27d; }
@@ -47,7 +50,7 @@
     header nav a { margin: 0 5px; color: #fff; text-decoration: none; font-weight: bold; }
     header nav a:hover { color: #ffe27d; }
 
-    .login-btn, .hiring-btn {
+    .login-btn {
       border: none; 
       padding: 8px 14px; 
       margin-left: 5px; 
@@ -55,20 +58,10 @@
       cursor: pointer; 
       font-weight: bold; 
       font-size: 0.9rem;
+      background: #ffe27d; color: #000;
       white-space: nowrap;
     }
-    .login-btn { background: #ffe27d; color: #000; }
     .login-btn:hover { background-color: #ffdd55; }
-
-    .hiring-btn {
-      background: transparent;
-      border: 2px solid #ffe27d;
-      animation: flashText 1.5s infinite;
-    }
-    @keyframes flashText {
-      0%, 100% { color: #ffe27d; border-color: #ffe27d; }
-      50% { color: #ffffff; border-color: #ffffff; }
-    }
 
     /* Hero */
     .hero { text-align: center; padding: 5rem 2rem; background: linear-gradient(to right, #1c1e26, #2b2e3d); }
@@ -116,7 +109,7 @@
 <body>
 
   <!-- Header -->
-  <header>
+  <header data-aos="fade-up">
     <div class="header-left">
       <img src="code_logo.png" alt="Logo" class="logo-img" />
       <h1>Code Cortex</h1>
@@ -131,73 +124,74 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" data-aos="fade-up">
     <h2 id="animatedText">Innovating Ideas.</h2>
     <p>We design & build scalable websites, mobile apps, and AI-driven solutions for businesses worldwide.</p>
     <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
   </section>
 
   <!-- Services -->
-  <section id="services">
+  <section id="services" data-aos="fade-up">
     <h2>Our Services</h2>
     <div class="cards-container">
-      <div class="card"><i class="fas fa-code"></i><h3>Web Development</h3><p>Responsive, SEO-optimized websites using HTML5, CSS3, JavaScript, and React.</p></div>
-      <div class="card"><i class="fas fa-mobile-alt"></i><h3>Mobile Apps</h3><p>Custom Android & iOS applications with modern UI/UX and smooth performance.</p></div>
-      <div class="card"><i class="fas fa-brain"></i><h3>AI Solutions</h3><p>Smart apps powered by AI & machine learning to automate and innovate business processes.</p></div>
-      <div class="card"><i class="fas fa-headset"></i><h3>Maintenance</h3><p>Regular updates, bug fixes, monitoring, and IT support for all your solutions.</p></div>
+      <div class="card" data-aos="fade-up"><i class="fas fa-code"></i><h3>Web Development</h3><p>Responsive, SEO-optimized websites using HTML5, CSS3, JavaScript, and React.</p></div>
+      <div class="card" data-aos="fade-up"><i class="fas fa-mobile-alt"></i><h3>Mobile Apps</h3><p>Custom Android & iOS applications with modern UI/UX and smooth performance.</p></div>
+      <div class="card" data-aos="fade-up"><i class="fas fa-brain"></i><h3>AI Solutions</h3><p>Smart apps powered by AI & machine learning to automate and innovate business processes.</p></div>
+      <div class="card" data-aos="fade-up"><i class="fas fa-headset"></i><h3>Maintenance</h3><p>Regular updates, bug fixes, monitoring, and IT support for all your solutions.</p></div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2>About Us</h2>
     <div class="cards-container">
-      <div class="card"><h3>Who We Are</h3><p>Code Cortex is a software house in Pakistan, passionate about delivering modern and scalable digital solutions.</p></div>
-      <div class="card"><h3>Mission</h3><p>To innovate and deliver impactful tech experiences through smart design and performance.</p></div>
-      <div class="card"><h3>Vision</h3><p>To become a trusted partner for startups and businesses worldwide, driving growth with technology.</p></div>
+      <div class="card" data-aos="fade-up"><h3>Who We Are</h3><p>Code Cortex is a software house in Pakistan, passionate about delivering modern and scalable digital solutions.</p></div>
+      <div class="card" data-aos="fade-up"><h3>Mission</h3><p>To innovate and deliver impactful tech experiences through smart design and performance.</p></div>
+      <div class="card" data-aos="fade-up"><h3>Vision</h3><p>To become a trusted partner for startups and businesses worldwide, driving growth with technology.</p></div>
     </div>
   </section>
 
   <!-- Testimonials -->
-  <section id="testimonials">
+  <section id="testimonials" data-aos="fade-up">
     <h2>What Our Clients Say</h2>
     <div class="cards-container">
-      <div class="testimonial">"Code Cortex transformed our idea into a working product faster than we imagined." <h4>- Client A</h4></div>
-      <div class="testimonial">"Excellent web and mobile app development service, highly recommended!" <h4>- Client B</h4></div>
-      <div class="testimonial">"Their AI solutions helped us automate and save costs significantly." <h4>- Client C</h4></div>
+      <div class="testimonial" data-aos="fade-up">"Code Cortex transformed our idea into a working product faster than we imagined." <h4>- Client A</h4></div>
+      <div class="testimonial" data-aos="fade-up">"Excellent web and mobile app development service, highly recommended!" <h4>- Client B</h4></div>
+      <div class="testimonial" data-aos="fade-up">"Their AI solutions helped us automate and save costs significantly." <h4>- Client C</h4></div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" data-aos="fade-up">
     <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="4" placeholder="Your Message"></textarea>
+    <form id="contactForm" action="https://formspree.io/f/mrbyedog" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message"></textarea>
       <button type="submit">Send Message</button>
     </form>
-    <p style="margin-top:1rem;">Or reach us directly: <br>
+    <p id="formMessage" style="margin-top:1rem;color:#ff6b6b;font-weight:bold;"></p>
+    <p style="margin-top:1rem;" data-aos="fade-up">Or reach us directly: <br>
       📧 <a href="mailto:codecortexpk@gmail.com">codecortexpk@gmail.com</a> | 📞 <a href="tel:+923157227688">+92 315 722 7688</a>
     </p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.1!2d72.349373!3d33.808117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df212d8d36468d%3A0x6e226ec2a3f8b8df!2sMehria%20Town%2C%20Attock%2C%20Pakistan!5e0!3m2!1sen!2s!4v1694511111111" allowfullscreen="" loading="lazy"></iframe>
+    <iframe data-aos="fade-up" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.1!2d72.349373!3d33.808117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df212d8d36468d%3A0x6e226ec2a3f8b8df!2sMehria%20Town%2C%20Attock%2C%20Pakistan!5e0!3m2!1sen!2s!4v1694511111111" allowfullscreen="" loading="lazy"></iframe>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer data-aos="fade-up">
     &copy; 2025 Code Cortex | All Rights Reserved
   </footer>
 
   <!-- Floating Buttons -->
   <div class="float-btn">
-    <a href="https://wa.me/923157227688" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.linkedin.com" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://wa.me/923157227688" target="_blank" class="whatsapp" data-aos="fade-up"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.linkedin.com" target="_blank" class="linkedin" data-aos="fade-up"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://twitter.com" target="_blank" class="twitter" data-aos="fade-up"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com" target="_blank" class="facebook" data-aos="fade-up"><i class="fab fa-facebook-f"></i></a>
   </div>
 
+  <!-- Hero Text Animation -->
   <script>
-    // Animated hero text
     const lines = [
       "Innovating Ideas.",
       "Crafting Interfaces.",
@@ -213,7 +207,40 @@
       textElement.textContent = lines[index];
     }, 2000);
   </script>
+
+  <!-- Contact Form Script -->
+  <script>
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    contactForm.addEventListener("submit", function(e) {
+      const lastSubmit = localStorage.getItem("lastSubmit");
+      const now = new Date().getTime();
+
+      if (lastSubmit && now - lastSubmit < 24 * 60 * 60 * 1000) {
+        e.preventDefault();
+        formMessage.textContent = "❌ You can only send one message per day.";
+        return false;
+      }
+
+      localStorage.setItem("lastSubmit", now);
+
+      // Wait for formspree response before reset
+      setTimeout(() => {
+        contactForm.reset();
+        formMessage.textContent = "✅ Message sent successfully!";
+      }, 500);
+    });
+  </script>
+
+  <!-- AOS Animation JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      once: false,
+      offset: 100,
+      duration: 1000
+    });
+  </script>
 </body>
 </html>
-
-
