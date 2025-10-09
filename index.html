@@ -72,16 +72,16 @@
 
     /* Header */
     header { 
-      position: fixed; top: 0; width: 100%; 
+      position: sticky; top: 0; 
       background: #2b2e3d; 
       padding: 1rem 2rem; 
       display: flex; 
       justify-content: space-between; 
       align-items: center; 
-      z-index: 1000; 
+      z-index: 100; 
       box-shadow: 0 4px 10px rgba(0,0,0,0.4); 
       flex-wrap: wrap;
-      transition: transform 0.3s ease-in-out;
+      transition: top 0.3s;
     }
     .header-left { display: flex; align-items: center; gap: 15px; }
     .logo-img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); }
@@ -145,12 +145,13 @@
 
     /* Theme toggle */
     #themeToggle { position: fixed; bottom: 20px; left:20px; width:45px; height:45px; border-radius:50%; border:none; cursor:pointer; background:#ffe27d; color:#000; font-size:20px; z-index:200; }
+
   </style>
 </head>
 <body data-theme="dark">
 
   <!-- Header -->
-  <header data-aos="fade-down">
+  <header data-aos="fade-up">
     <div class="header-left">
       <img src="code_logo.png" alt="Code Cortex company logo" class="logo-img" />
       <h1>Code Cortex</h1>
@@ -292,26 +293,23 @@
       document.body.setAttribute("data-theme", current==="dark"?"light":"dark");
     });
 
-    // Auto-hide header
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          if (scrollTop > lastScrollTop && scrollTop > 100) {
-            header.style.transform = 'translateY(-120%)';
-          } else {
-            header.style.transform = 'translateY(0)';
-          }
-          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-          ticking = false;
-        });
-        ticking = true;
+    // Auto-hide header on desktop only
+    let prevScroll = window.scrollY;
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+      if(window.innerWidth > 800){
+        const currentScroll = window.scrollY;
+        if (currentScroll > prevScroll && currentScroll > 100) {
+          header.style.top = "-100px"; 
+        } else {
+          header.style.top = "0"; 
+        }
+        prevScroll = currentScroll;
+      } else {
+        header.style.top = "0";
       }
     });
   </script>
-
 </body>
 </html>
