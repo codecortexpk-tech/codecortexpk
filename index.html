@@ -8,6 +8,7 @@
   <meta name="description" content="Code Cortex (SMC-Pvt.) Ltd. - Leading software house in Attock, Pakistan. We provide web development, mobile apps, AI solutions, smart home automation, and IT services.">
   <meta name="keywords" content="Code Cortex, software house Pakistan, IT services, mobile app development, web development, AI solutions, smart home automation, software company, IT solutions, custom software, web design, mobile apps, AI, machine learning, technology services">
   <link rel="canonical" href="https://codecortexpk-tech.github.io/codecortexpk/">
+  <meta name="theme-color" content="#2b2e3d">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Code Cortex | Software House in Pakistan">
@@ -22,74 +23,110 @@
   <meta name="twitter:description" content="Providing IT services, web & mobile apps, AI & smart solutions from Pakistan.">
   <meta name="twitter:image" content="https://codecortexpk-tech.github.io/codecortexpk/code_logo.png">
 
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Code Cortex (SMC-Pvt.) Ltd.",
+    "url": "https://codecortexpk-tech.github.io/codecortexpk/",
+    "logo": "https://codecortexpk-tech.github.io/codecortexpk/code_logo.png",
+    "sameAs": [
+      "https://www.facebook.com/yourpage",
+      "https://www.linkedin.com/company/yourcompany",
+      "https://twitter.com/yourhandle"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+92-315-722-7688",
+      "contactType": "customer service",
+      "areaServed": "PK"
+    }]
+  }
+  </script>
+
   <link rel="icon" href="code_logo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- AOS Animation CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <style>
+    :root{
+      --bg: #1c1e26;
+      --panel: #2f3243;
+      --accent: #ffe27d;
+      --muted: #ccc;
+      --cta: #ff6b6b;
+    }
+    [data-theme="light"]{
+      --bg: #ffffff;
+      --panel: #f5f5f7;
+      --accent: #ffb84d;
+      --muted: #333;
+      --cta: #ff4b4b;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body { font-family: 'Segoe UI', sans-serif; background-color: #1c1e26; color: #fff; line-height: 1.6; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); color: var(--muted); line-height: 1.6; }
 
     /* Header */
     header { 
-      position: sticky; top: 0; 
+      position: fixed; top: 0; width: 100%; 
       background: #2b2e3d; 
       padding: 1rem 2rem; 
       display: flex; 
       justify-content: space-between; 
       align-items: center; 
-      z-index: 100; 
+      z-index: 1000; 
       box-shadow: 0 4px 10px rgba(0,0,0,0.4); 
       flex-wrap: wrap;
+      transition: transform 0.3s ease-in-out;
     }
     .header-left { display: flex; align-items: center; gap: 15px; }
-    .logo-img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #ffe27d; }
-    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
-    header nav a { margin: 0 5px; color: #fff; text-decoration: none; font-weight: bold; }
-    header nav a:hover { color: #ffe27d; }
-
-    .login-btn {
-      border: none; 
-      padding: 8px 14px; 
-      margin-left: 5px; 
-      border-radius: 5px; 
-      cursor: pointer; 
-      font-weight: bold; 
-      font-size: 0.9rem;
-      background: #ffe27d; color: #000;
-      white-space: nowrap;
-    }
+    .logo-img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); }
+    .main-nav { display: flex; align-items: center; gap: 10px; }
+    .main-nav a { color: #fff; text-decoration: none; font-weight: bold; margin: 0 5px; }
+    .main-nav a:hover { color: var(--accent); }
+    .login-btn { border: none; padding: 8px 14px; margin-left: 5px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 0.9rem; background: var(--accent); color: #000; white-space: nowrap; }
     .login-btn:hover { background-color: #ffdd55; }
 
+    /* Hamburger nav */
+    .nav-toggle{ display:none; background:none; border:none; color:#fff; font-size:1.2rem; cursor:pointer;}
+    @media(max-width:800px){
+      .nav-toggle{ display:block; }
+      #navMenu { display:none; flex-direction: column; gap:8px; background:#2b2e3d; position:absolute; right:1rem; top:70px; padding:1rem; border-radius:8px; }
+    }
+    @media(min-width:801px){ #navMenu { display:flex; gap:12px; } }
+
     /* Hero */
-    .hero { text-align: center; padding: 5rem 2rem; background: linear-gradient(to right, #1c1e26, #2b2e3d); }
-    .hero h2 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; color: #ccc; margin-bottom: 2rem; }
-    .cta-btn { background: #ff6b6b; color: #fff; padding: 12px 25px; border: none; border-radius: 25px; font-size: 1rem; cursor: pointer; transition: background 0.3s; }
+    .hero { text-align: center; padding: 5rem 2rem; background: linear-gradient(to right, var(--bg), #2b2e3d); }
+    .hero h2 { font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(90deg, var(--accent), var(--cta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.2rem; color: var(--muted); margin-bottom: 2rem; }
+    .cta-btn { background: var(--cta); color: #fff; padding: 12px 25px; border: none; border-radius: 25px; font-size: 1rem; cursor: pointer; transition: background 0.3s; }
     .cta-btn:hover { background: #ff4b4b; }
 
     /* Sections */
     section { padding: 3rem 2rem; text-align: center; }
-    h2 { margin-bottom: 2rem; font-size: 2rem; color: #ffe27d; }
+    h2 { margin-bottom: 2rem; font-size: 2rem; color: var(--accent); }
 
     /* Cards */
     .cards-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
-    .card { background-color: #2f3243; padding: 1.5rem; border-radius: 10px; width: 280px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s; }
+    .card { background-color: var(--panel); padding: 1.5rem; border-radius: 10px; width: 280px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: transform 0.3s; }
     .card:hover { transform: translateY(-5px); }
-    .card h3 { margin-bottom: 1rem; color: #ffe27d; }
-    .card p { color: #ccc; }
-    .card i { font-size: 2rem; margin-bottom: 1rem; color: #ff6b6b; }
+    .card h3 { margin-bottom: 1rem; color: var(--accent); }
+    .card p { color: var(--muted); }
+    .card i { font-size: 2rem; margin-bottom: 1rem; color: var(--cta); transition: transform 0.25s, color 0.25s; }
+    .card:hover i { transform: scale(1.2); color: var(--accent); }
 
     /* Testimonials */
-    .testimonial { background: #2f3243; padding: 1.5rem; border-radius: 10px; width: 280px; color: #ccc; font-style: italic; }
-    .testimonial h4 { margin-top: 1rem; color: #ffe27d; }
+    .testimonial { background: var(--panel); padding: 1.5rem; border-radius: 10px; width: 280px; color: var(--muted); font-style: italic; }
+    .testimonial h4 { margin-top: 1rem; color: var(--accent); }
 
     /* Contact */
     form { max-width: 500px; margin: 1rem auto; text-align: left; }
     form input, form textarea { width: 100%; padding: 10px; margin: 8px 0; border-radius: 5px; border: none; }
-    form button { background: #ff6b6b; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    form button { background: var(--cta); color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
     form button:hover { background: #ff4b4b; }
     iframe { width: 100%; height: 300px; border: none; margin-top: 1rem; border-radius: 10px; }
 
@@ -104,21 +141,30 @@
     .twitter { background: #1DA1F2; }
     .facebook { background: #1877f2; }
     .float-btn a:hover { opacity: 0.8; }
+    .float-btn .top { background: var(--cta); }
+
+    /* Theme toggle */
+    #themeToggle { position: fixed; bottom: 20px; left:20px; width:45px; height:45px; border-radius:50%; border:none; cursor:pointer; background:#ffe27d; color:#000; font-size:20px; z-index:200; }
   </style>
 </head>
-<body>
+<body data-theme="dark">
 
   <!-- Header -->
-  <header data-aos="fade-up">
+  <header data-aos="fade-down">
     <div class="header-left">
-      <img src="code_logo.png" alt="Logo" class="logo-img" />
+      <img src="code_logo.png" alt="Code Cortex company logo" class="logo-img" />
       <h1>Code Cortex</h1>
     </div>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+
+    <nav class="main-nav">
+      <button id="navToggle" aria-expanded="false" aria-controls="navMenu" class="nav-toggle"><i class="fa fa-bars"></i></button>
+      <div id="navMenu" class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
     <button class="login-btn" onclick="window.location.href='login.html'">Admin Login</button>
   </header>
@@ -151,6 +197,16 @@
     </div>
   </section>
 
+  <!-- Portfolio -->
+  <section id="portfolio" data-aos="fade-up">
+    <h2>Our Portfolio</h2>
+    <div class="cards-container">
+      <div class="card" data-aos="fade-up"><i class="fas fa-laptop-code"></i><h3>Project 1</h3><p>Responsive website for a local business with full SEO optimization.</p></div>
+      <div class="card" data-aos="fade-up"><i class="fas fa-mobile-alt"></i><h3>Project 2</h3><p>Android & iOS app for e-commerce with modern UI/UX and payment integration.</p></div>
+      <div class="card" data-aos="fade-up"><i class="fas fa-brain"></i><h3>Project 3</h3><p>AI-powered recommendation system to automate user personalization.</p></div>
+    </div>
+  </section>
+
   <!-- Testimonials -->
   <section id="testimonials" data-aos="fade-up">
     <h2>What Our Clients Say</h2>
@@ -167,6 +223,7 @@
     <form id="contactForm" action="https://formspree.io/f/mrbyedog" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="_honeypot" style="display:none">
       <textarea name="message" rows="4" placeholder="Your Message"></textarea>
       <button type="submit">Send Message</button>
     </form>
@@ -174,7 +231,11 @@
     <p style="margin-top:1rem;" data-aos="fade-up">Or reach us directly: <br>
       📧 <a href="mailto:codecortexpk@gmail.com">codecortexpk@gmail.com</a> | 📞 <a href="tel:+923157227688">+92 315 722 7688</a>
     </p>
-    <iframe data-aos="fade-up" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.1!2d72.349373!3d33.808117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df212d8d36468d%3A0x6e226ec2a3f8b8df!2sMehria%20Town%2C%20Attock%2C%20Pakistan!5e0!3m2!1sen!2s!4v1694511111111" allowfullscreen="" loading="lazy"></iframe>
+    <iframe
+      data-aos="fade-up"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.1137840996367!2d72.34718411494058!3d33.80811708071268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df212d8d36468d%3A0x6e226ec2a3f8b8df!2sMehria%20Town%2C%20Attock%2C%20Pakistan!5e0!3m2!1sen!2s!4v1694511111111"
+      width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy">
+    </iframe>
   </section>
 
   <!-- Footer -->
@@ -188,59 +249,69 @@
     <a href="https://www.linkedin.com" target="_blank" class="linkedin" data-aos="fade-up"><i class="fab fa-linkedin-in"></i></a>
     <a href="https://twitter.com" target="_blank" class="twitter" data-aos="fade-up"><i class="fab fa-twitter"></i></a>
     <a href="https://facebook.com" target="_blank" class="facebook" data-aos="fade-up"><i class="fab fa-facebook-f"></i></a>
+    <a href="#hero" class="top" data-aos="fade-up"><i class="fas fa-arrow-up"></i></a>
   </div>
 
-  <!-- Hero Text Animation -->
-  <script>
-    const lines = [
-      "Innovating Ideas.",
-      "Crafting Interfaces.",
-      "Accelerating Tech.",
-      "Delivering Experiences.",
-      "Powered by Design.",
-      "Code that Connects."
-    ];
-    const textElement = document.getElementById("animatedText");
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % lines.length;
-      textElement.textContent = lines[index];
-    }, 2000);
-  </script>
+  <!-- Theme Toggle -->
+  <button id="themeToggle" aria-label="Toggle Dark/Light Mode"><i class="fas fa-adjust"></i></button>
 
-  <!-- Contact Form Script -->
-  <script>
-    const contactForm = document.getElementById("contactForm");
-    const formMessage = document.getElementById("formMessage");
-
-    contactForm.addEventListener("submit", function(e) {
-      const lastSubmit = localStorage.getItem("lastSubmit");
-      const now = new Date().getTime();
-
-      if (lastSubmit && now - lastSubmit < 24 * 60 * 60 * 1000) {
-        e.preventDefault();
-        formMessage.textContent = "❌ You can only send one message per day.";
-        return false;
-      }
-
-      localStorage.setItem("lastSubmit", now);
-
-      // Wait for formspree response before reset
-      setTimeout(() => {
-        contactForm.reset();
-        formMessage.textContent = "✅ Message sent successfully!";
-      }, 500);
-    });
-  </script>
-
-  <!-- AOS Animation JS -->
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    AOS.init({
-      once: false,
-      offset: 100,
-      duration: 1000
+    AOS.init({ once:false, offset:100, duration:1000 });
+
+    // Hero text animation
+    const lines = ["Innovating Ideas.", "Crafting Interfaces.", "Accelerating Tech.", "Delivering Experiences.", "Powered by Design.", "Code that Connects."];
+    const textEl = document.getElementById("animatedText");
+    let idx = 0;
+    setInterval(()=>{ idx=(idx+1)%lines.length; textEl.textContent=lines[idx]; },2000);
+
+    // Hamburger menu
+    const navToggle=document.getElementById("navToggle");
+    const navMenu=document.getElementById("navMenu");
+    navToggle.addEventListener("click",()=>{ 
+      const expanded=navToggle.getAttribute("aria-expanded")==="true";
+      navToggle.setAttribute("aria-expanded",!expanded); navMenu.style.display=!expanded?"flex":"none";
+    });
+
+    // Contact form
+    const contactForm=document.getElementById("contactForm");
+    const formMessage=document.getElementById("formMessage");
+    contactForm.addEventListener("submit",function(e){
+      const lastSubmit=localStorage.getItem("lastSubmit");
+      const now=new Date().getTime();
+      if(lastSubmit && now-lastSubmit<24*60*60*1000){ e.preventDefault(); formMessage.textContent="❌ Only one message per day."; return false; }
+      localStorage.setItem("lastSubmit",now);
+      setTimeout(()=>{ contactForm.reset(); formMessage.textContent="✅ Message sent successfully!"; },500);
+    });
+
+    // Theme toggle
+    const themeBtn=document.getElementById("themeToggle");
+    themeBtn.addEventListener("click",()=>{
+      const current=document.body.getAttribute("data-theme");
+      document.body.setAttribute("data-theme", current==="dark"?"light":"dark");
+    });
+
+    // Auto-hide header
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          if (scrollTop > lastScrollTop && scrollTop > 100) {
+            header.style.transform = 'translateY(-120%)';
+          } else {
+            header.style.transform = 'translateY(0)';
+          }
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
   </script>
+
 </body>
 </html>
