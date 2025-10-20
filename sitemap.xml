@@ -1,27 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/</loc>
-    <lastmod>2025-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/#services</loc>
-    <lastmod>2025-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/#about</loc>
-    <lastmod>2025-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://codecortexpk-tech.github.io/codecortexpk/#contact</loc>
-    <lastmod>2025-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-</urlset>
+sitemap.xml
+├── Homepage (priority: 1.0)
+├── Service Pages (priority: 0.9)
+│   ├── Web Development
+│   ├── Mobile Apps
+│   ├── AI Solutions
+│   └── Maintenance
+└── Page Sections (priority: 0.6-0.8)
+    ├── #services
+    ├── #about
+    ├── #portfolio
+    ├── #testimonials
+    └── #contact
