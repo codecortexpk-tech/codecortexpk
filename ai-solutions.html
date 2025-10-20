@@ -385,64 +385,6 @@
       color: var(--ai-secondary);
     }
 
-    /* AI Applications */
-    .applications-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
-    .application {
-      background: var(--panel);
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-align: left;
-      transition: all 0.3s ease;
-      border-left: 4px solid var(--ai-primary);
-    }
-    
-    .application:hover {
-      transform: translateX(10px);
-      background: rgba(0, 212, 255, 0.05);
-    }
-    
-    .application h4 {
-      color: var(--ai-primary);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    /* Tech Stack */
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .tech-item {
-      background: var(--panel);
-      padding: 12px 24px;
-      border-radius: 25px;
-      border: 1px solid rgba(0, 212, 255, 0.3);
-      font-weight: 600;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .tech-item:hover {
-      transform: translateY(-3px);
-      background: rgba(0, 212, 255, 0.1);
-      border-color: var(--ai-primary);
-    }
-
     /* Process Section */
     .process-steps {
       display: flex;
@@ -540,15 +482,6 @@
       .cards-container {
         grid-template-columns: 1fr;
       }
-      
-      .ai-features {
-        gap: 1rem;
-      }
-      
-      .ai-feature {
-        padding: 0.8rem 1.2rem;
-        font-size: 0.9rem;
-      }
     }
 
     /* Animation Keyframes */
@@ -565,17 +498,6 @@
     
     .fade-in {
       animation: fadeInUp 0.8s ease forwards;
-    }
-    
-    /* Neural Network Animation */
-    .neural-network {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.1;
-      pointer-events: none;
     }
   </style>
 </head>
@@ -638,57 +560,6 @@
         <h3>Process Automation</h3>
         <p>Intelligent automation of repetitive tasks and workflows using AI and RPA. Increase efficiency, reduce errors, and free up human resources for strategic work.</p>
       </div>
-      
-      <div class="card" data-aos="fade-up" data-aos-delay="500">
-        <i class="fas fa-eye" aria-hidden="true"></i>
-        <h3>Computer Vision</h3>
-        <p>Image and video analysis solutions for object detection, facial recognition, quality control, and visual search capabilities across various industries.</p>
-      </div>
-      
-      <div class="card" data-aos="fade-up" data-aos-delay="600">
-        <i class="fas fa-comments" aria-hidden="true"></i>
-        <h3>Natural Language Processing</h3>
-        <p>Text analysis, sentiment analysis, document classification, and language translation services to extract insights from unstructured text data.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- AI Applications -->
-  <section style="background: var(--panel);">
-    <h2>AI Applications Across Industries</h2>
-    <div class="applications-grid">
-      <div class="application" data-aos="fade-up">
-        <h4><i class="fas fa-shopping-cart"></i> E-commerce</h4>
-        <p>Personalized recommendations, demand forecasting, and customer sentiment analysis</p>
-      </div>
-      
-      <div class="application" data-aos="fade-up" data-aos-delay="100">
-        <h4><i class="fas fa-heartbeat"></i> Healthcare</h4>
-        <p>Medical image analysis, patient risk prediction, and drug discovery assistance</p>
-      </div>
-      
-      <div class="application" data-aos="fade-up" data-aos-delay="200">
-        <h4><i class="fas fa-money-bill-wave"></i> Finance</h4>
-        <p>Fraud detection, algorithmic trading, credit scoring, and risk assessment</p>
-      </div>
-      
-      <div class="application" data-aos="fade-up" data-aos-delay="300">
-        <h4><i class="fas fa-industry"></i> Manufacturing</h4>
-        <p>Predictive maintenance, quality control, and supply chain optimization</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tech Stack -->
-  <section>
-    <h2>Our AI Technology Stack</h2>
-    <div class="tech-stack">
-      <span class="tech-item" data-aos="fade-up"><i class="fab fa-python"></i> Python</span>
-      <span class="tech-item" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-brain"></i> TensorFlow</span>
-      <span class="tech-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-project-diagram"></i> PyTorch</span>
-      <span class="tech-item" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-chart-bar"></i> Scikit-learn</span>
-      <span class="tech-item" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-database"></i> OpenCV</span>
-      <span class="tech-item" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-robot"></i> NLP Libraries</span>
     </div>
   </section>
 
@@ -773,25 +644,6 @@
           prevScroll = currentScroll;
         }
       });
-
-      // Simple neural network animation
-      const createNeuralNetwork = () => {
-        const container = document.querySelector('.hero');
-        const neuralNet = document.createElement('div');
-        neuralNet.className = 'neural-network';
-        container.appendChild(neuralNet);
-        
-        // This would be replaced with a proper canvas animation in production
-        neuralNet.innerHTML = `
-          <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M10,10 L30,30 L50,20 L70,40 L90,30" stroke="rgba(0,212,255,0.3)" fill="none" stroke-width="0.5"/>
-            <path d="M10,30 L30,50 L50,40 L70,60 L90,50" stroke="rgba(123,97,255,0.3)" fill="none" stroke-width="0.5"/>
-            <path d="M10,50 L30,70 L50,60 L70,80 L90,70" stroke="rgba(0,212,255,0.3)" fill="none" stroke-width="0.5"/>
-          </svg>
-        `;
-      };
-
-      createNeuralNetwork();
     });
   </script>
 </body>
