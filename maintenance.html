@@ -385,111 +385,6 @@
       color: var(--maintenance-secondary);
     }
 
-    /* Support Levels */
-    .support-levels {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
-    .support-level {
-      background: var(--panel);
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-    
-    .support-level.basic {
-      border-color: var(--muted);
-    }
-    
-    .support-level.pro {
-      border-color: var(--maintenance-primary);
-      transform: scale(1.05);
-    }
-    
-    .support-level.enterprise {
-      border-color: var(--cta);
-    }
-    
-    .support-level:hover {
-      transform: translateY(-5px);
-    }
-    
-    .support-level.pro:hover {
-      transform: scale(1.05) translateY(-5px);
-    }
-    
-    .level-header {
-      margin-bottom: 1.5rem;
-    }
-    
-    .level-price {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--maintenance-primary);
-      margin: 1rem 0;
-    }
-    
-    .level-features {
-      list-style: none;
-      text-align: left;
-      margin: 1.5rem 0;
-    }
-    
-    .level-features li {
-      margin: 0.8rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .level-features li::before {
-      content: '✓';
-      color: var(--maintenance-primary);
-      font-weight: bold;
-    }
-
-    /* Monitoring Dashboard */
-    .dashboard-preview {
-      background: var(--panel);
-      padding: 2rem;
-      border-radius: 15px;
-      max-width: 800px;
-      margin: 2rem auto;
-      border: 1px solid rgba(0, 204, 136, 0.3);
-    }
-    
-    .dashboard-metrics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    
-    .metric {
-      text-align: center;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-    }
-    
-    .metric-value {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--maintenance-primary);
-      display: block;
-    }
-    
-    .metric-label {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
     /* Process Section */
     .process-steps {
       display: flex;
@@ -588,14 +483,6 @@
         grid-template-columns: 1fr;
       }
       
-      .support-levels {
-        grid-template-columns: 1fr;
-      }
-      
-      .support-level.pro {
-        transform: scale(1);
-      }
-      
       .maintenance-features {
         gap: 1rem;
       }
@@ -682,97 +569,6 @@
         <h3>24/7 Technical Support</h3>
         <p>Round-the-clock technical support via multiple channels including phone, email, and chat. Quick response times and expert solutions for all your technical challenges.</p>
       </div>
-      
-      <div class="card" data-aos="fade-up" data-aos-delay="500">
-        <i class="fas fa-shield-alt" aria-hidden="true"></i>
-        <h3>Security Maintenance</h3>
-        <p>Regular security audits, vulnerability assessments, and implementation of security patches to protect your systems from threats and ensure data protection compliance.</p>
-      </div>
-      
-      <div class="card" data-aos="fade-up" data-aos-delay="600">
-        <i class="fas fa-chart-line" aria-hidden="true"></i>
-        <h3>Performance Optimization</h3>
-        <p>Continuous performance monitoring and optimization to ensure fast loading times, efficient resource usage, and optimal user experience across all platforms.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Support Levels -->
-  <section style="background: var(--panel);">
-    <h2>Support Plans</h2>
-    <div class="support-levels">
-      <div class="support-level basic" data-aos="fade-up">
-        <div class="level-header">
-          <h3>Basic Support</h3>
-          <div class="level-price">$99<span>/month</span></div>
-        </div>
-        <ul class="level-features">
-          <li>Business Hours Support</li>
-          <li>Basic Bug Fixing</li>
-          <li>Monthly Updates</li>
-          <li>Email Support</li>
-          <li>Standard Response Time</li>
-        </ul>
-      </div>
-      
-      <div class="support-level pro" data-aos="fade-up" data-aos-delay="100">
-        <div class="level-header">
-          <h3>Professional Support</h3>
-          <div class="level-price">$299<span>/month</span></div>
-        </div>
-        <ul class="level-features">
-          <li>24/7 Priority Support</li>
-          <li>Advanced Bug Fixing</li>
-          <li>Weekly Updates</li>
-          <li>Phone & Chat Support</li>
-          <li>1-hour Response Time</li>
-          <li>Server Monitoring</li>
-        </ul>
-      </div>
-      
-      <div class="support-level enterprise" data-aos="fade-up" data-aos-delay="200">
-        <div class="level-header">
-          <h3>Enterprise Support</h3>
-          <div class="level-price">Custom</div>
-        </div>
-        <ul class="level-features">
-          <li>Dedicated Support Team</li>
-          <li>Immediate Response</li>
-          <li>Real-time Updates</li>
-          <li>24/7 Multiple Channels</li>
-          <li>Advanced Monitoring</li>
-          <li>Custom SLAs</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Monitoring Dashboard Preview -->
-  <section>
-    <h2>Proactive Monitoring Dashboard</h2>
-    <div class="dashboard-preview" data-aos="fade-up">
-      <h3 style="color: var(--maintenance-primary); margin-bottom: 1rem;">Real-time System Health</h3>
-      <div class="dashboard-metrics">
-        <div class="metric">
-          <span class="metric-value">99.9%</span>
-          <span class="metric-label">Uptime</span>
-        </div>
-        <div class="metric">
-          <span class="metric-value">0.8s</span>
-          <span class="metric-label">Response Time</span>
-        </div>
-        <div class="metric">
-          <span class="metric-value">0</span>
-          <span class="metric-label">Active Issues</span>
-        </div>
-        <div class="metric">
-          <span class="metric-value">24/7</span>
-          <span class="metric-label">Monitoring</span>
-        </div>
-      </div>
-      <p style="color: var(--muted); font-size: 0.9rem;">
-        Our comprehensive monitoring dashboard provides real-time insights into your system performance, security status, and operational health.
-      </p>
     </div>
   </section>
 
@@ -857,35 +653,6 @@
           prevScroll = currentScroll;
         }
       });
-
-      // Animated metrics (optional enhancement)
-      const metrics = document.querySelectorAll('.metric-value');
-      metrics.forEach(metric => {
-        const finalValue = metric.textContent;
-        if (finalValue === '99.9%') {
-          animateValue(metric, 0, 99.9, 2000, '%');
-        } else if (finalValue === '0.8s') {
-          animateValue(metric, 0, 0.8, 2000, 's');
-        } else if (finalValue === '0') {
-          metric.textContent = '0';
-        } else if (finalValue === '24/7') {
-          metric.textContent = '24/7';
-        }
-      });
-
-      function animateValue(element, start, end, duration, suffix) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          const value = progress * (end - start) + start;
-          element.textContent = value.toFixed(1) + suffix;
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          }
-        };
-        window.requestAnimationFrame(step);
-      }
     });
   </script>
 </body>
