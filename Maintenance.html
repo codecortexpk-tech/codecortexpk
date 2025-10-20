@@ -1,91 +1,892 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maintenance Services | Code Cortex</title>
-<link rel="icon" href="code_logo.png" type="image/x-icon">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-<style>
-:root{--bg:#1c1e26;--panel:#2f3243;--accent:#ffe27d;--muted:#ccc;--cta:#ff6b6b;}
-body{margin:0;font-family:'Segoe UI',sans-serif;background-color:var(--bg);color:var(--muted);overflow-x:hidden;}
-header{position:sticky;top:0;background:#2b2e3d;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:100;}
-.logo-img{width:55px;height:55px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);}
-nav a{color:#fff;text-decoration:none;margin:0 10px;font-weight:bold;}
-nav a:hover{color:var(--accent);}
-.back-btn{margin-left:10px;padding:8px 14px;border-radius:5px;background:var(--accent);color:#000;font-weight:bold;border:none;cursor:pointer;}
-.back-btn:hover{background:#ffdd55;}
-.hero{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:90vh;background: linear-gradient(to right,#2b2e3d,#1c1e26);position:relative;overflow:hidden;}
-.hero h1{font-size:3rem;background: linear-gradient(90deg,var(--accent),var(--cta));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem;animation:fadeInDown 1s ease forwards;}
-.hero p{font-size:1.2rem;max-width:700px;color:#fff;margin-bottom:2rem;animation:fadeInUp 1s ease 0.5s forwards;opacity:0;}
-@keyframes fadeInDown{from{opacity:0;transform:translateY(-50px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
-section{padding:4rem 2rem;text-align:center;}
-h2{font-size:2.2rem;color:var(--accent);margin-bottom:2rem;}
-.cards-container{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;}
-.card{background:var(--panel);padding:2rem;border-radius:15px;width:300px;box-shadow:0 4px 20px rgba(0,0,0,0.4);transition:transform 0.4s,box-shadow 0.4s;opacity:0;}
-.card:hover{transform:translateY(-10px);box-shadow:0 8px 30px rgba(0,0,0,0.6);}
-.card i{font-size:2.5rem;margin-bottom:1rem;color:var(--cta);transition:transform 0.3s,color 0.3s;}
-.card:hover i{transform:scale(1.3);color:var(--accent);}
-.card h3{color:var(--accent);margin-bottom:1rem;}
-.card p{color:var(--muted);}
-footer{background:#2b2e3d;color:#aaa;text-align:center;padding:2rem;margin-top:3rem;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>IT Maintenance & Support Services Pakistan | Code Cortex - 24/7 Support</title>
+  <meta name="description" content="Professional IT maintenance and support services in Pakistan. Code Cortex provides 24/7 bug fixing, server monitoring, updates, and technical support for websites and applications.">
+  <meta name="keywords" content="IT maintenance Pakistan, technical support, bug fixing, server monitoring, software updates, 24/7 support, IT services Pakistan">
+  <meta name="author" content="Code Cortex (SMC-Pvt.) Ltd.">
+  <link rel="canonical" href="https://codecortexpk-tech.github.io/codecortexpk/maintenance.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="IT Maintenance & Support Services Pakistan | Code Cortex">
+  <meta property="og:description" content="Professional IT maintenance, 24/7 technical support, bug fixing, server monitoring, and software updates for businesses in Pakistan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codecortexpk-tech.github.io/codecortexpk/maintenance.html">
+  <meta property="og:image" content="https://codecortexpk-tech.github.io/codecortexpk/code_logo.png">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IT Maintenance & Support Services | Code Cortex">
+  <meta name="twitter:description" content="24/7 technical support, bug fixing, server monitoring, and maintenance services for your digital solutions.">
+  
+  <!-- Preload Resources -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" as="style">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="code_logo.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="code_logo.png">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "IT Maintenance & Support Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "Code Cortex (SMC-Pvt.) Ltd.",
+      "url": "https://codecortexpk-tech.github.io/codecortexpk/"
+    },
+    "description": "Professional IT maintenance and technical support services including bug fixing, server monitoring, software updates, and 24/7 support for digital solutions.",
+    "serviceType": "IT Maintenance & Support",
+    "areaServed": "Pakistan",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Maintenance & Support Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Bug Fixing & Troubleshooting"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Software Updates & Upgrades"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Server Monitoring & Maintenance"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "24/7 Technical Support"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #1c1e26;
+      --panel: #2f3243;
+      --accent: #ffe27d;
+      --muted: #ccc;
+      --cta: #ff6b6b;
+      --text-primary: #ffffff;
+      --maintenance-primary: #00cc88;
+      --maintenance-secondary: #00a3cc;
+    }
+    
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --panel: #f5f5f7;
+      --accent: #ffb84d;
+      --muted: #333;
+      --cta: #ff4b4b;
+      --text-primary: #000000;
+      --maintenance-primary: #00a86b;
+      --maintenance-secondary: #0088cc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--muted);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(43, 46, 61, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+    
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo-img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      transition: transform 0.3s ease;
+    }
+    
+    .logo-img:hover {
+      transform: rotate(5deg) scale(1.05);
+    }
+    
+    .header-left h1 {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    nav a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    nav a:hover,
+    nav a:focus {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .back-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .back-btn:hover,
+    .back-btn:focus {
+      background: #ffdd55;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--bg) 0%, #1a1c23 100%);
+      position: relative;
+      padding: 0 2rem;
+      margin-top: 80px;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 204, 136, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 163, 204, 0.1) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.8; }
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      background: linear-gradient(90deg, var(--maintenance-primary), var(--maintenance-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .maintenance-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .maintenance-feature {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 204, 136, 0.2);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .maintenance-feature:hover {
+      transform: translateY(-3px);
+      background: rgba(0, 204, 136, 0.1);
+      border-color: var(--maintenance-primary);
+    }
+
+    /* Services Section */
+    section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    
+    section:nth-child(even) {
+      background: var(--panel);
+    }
+    
+    h2 {
+      margin-bottom: 3rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--maintenance-primary);
+      border-radius: 2px;
+    }
+
+    /* Cards */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .card {
+      background-color: var(--panel);
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--maintenance-primary), var(--maintenance-secondary));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+    
+    .card h3 {
+      margin-bottom: 1rem;
+      color: var(--maintenance-primary);
+      font-size: 1.4rem;
+    }
+    
+    .card p {
+      color: var(--muted);
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+    }
+    
+    .card i {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--maintenance-primary);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover i {
+      transform: scale(1.2) rotate(5deg);
+      color: var(--maintenance-secondary);
+    }
+
+    /* Support Levels */
+    .support-levels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .support-level {
+      background: var(--panel);
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .support-level.basic {
+      border-color: var(--muted);
+    }
+    
+    .support-level.pro {
+      border-color: var(--maintenance-primary);
+      transform: scale(1.05);
+    }
+    
+    .support-level.enterprise {
+      border-color: var(--cta);
+    }
+    
+    .support-level:hover {
+      transform: translateY(-5px);
+    }
+    
+    .support-level.pro:hover {
+      transform: scale(1.05) translateY(-5px);
+    }
+    
+    .level-header {
+      margin-bottom: 1.5rem;
+    }
+    
+    .level-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--maintenance-primary);
+      margin: 1rem 0;
+    }
+    
+    .level-features {
+      list-style: none;
+      text-align: left;
+      margin: 1.5rem 0;
+    }
+    
+    .level-features li {
+      margin: 0.8rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .level-features li::before {
+      content: '✓';
+      color: var(--maintenance-primary);
+      font-weight: bold;
+    }
+
+    /* Monitoring Dashboard */
+    .dashboard-preview {
+      background: var(--panel);
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 800px;
+      margin: 2rem auto;
+      border: 1px solid rgba(0, 204, 136, 0.3);
+    }
+    
+    .dashboard-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .metric {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+    
+    .metric-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--maintenance-primary);
+      display: block;
+    }
+    
+    .metric-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Process Section */
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .process-step {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--maintenance-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0 auto 1rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--maintenance-primary) 0%, var(--maintenance-secondary) 100%);
+      color: white;
+      padding: 4rem 2rem;
+      border-radius: 20px;
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+    
+    .cta-section h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .cta-button {
+      background: white;
+      color: var(--maintenance-primary);
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: #2b2e3d;
+      color: #aaa;
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      
+      nav {
+        gap: 10px;
+      }
+      
+      .hero {
+        margin-top: 120px;
+        padding: 0 1rem;
+      }
+      
+      section {
+        padding: 3rem 1rem;
+      }
+      
+      .cards-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .support-levels {
+        grid-template-columns: 1fr;
+      }
+      
+      .support-level.pro {
+        transform: scale(1);
+      }
+      
+      .maintenance-features {
+        gap: 1rem;
+      }
+      
+      .maintenance-feature {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+  </style>
 </head>
 <body data-theme="dark">
 
-<header>
-  <div class="header-left">
-    <img src="code_logo.png" alt="Code Cortex logo" class="logo-img"/>
-    <h1>Code Cortex</h1>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="#services-section">Services</a>
-    <button class="back-btn" onclick="window.location.href='index.html'">⬅ Back</button>
-  </nav>
-</header>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img src="code_logo.png" alt="Code Cortex - IT Maintenance & Support Services Pakistan" class="logo-img" width="55" height="55" />
+      <h1>Code Cortex</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact">Contact</a>
+      <button class="back-btn" onclick="window.location.href='index.html'" aria-label="Back to homepage">
+        ← Back to Home
+      </button>
+    </nav>
+  </header>
 
-<section class="hero">
-  <h1>Maintenance & Support</h1>
-  <p>Reliable maintenance and IT support services to keep your websites, mobile apps, and AI solutions running smoothly and securely 24/7.</p>
-</section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="fade-in">Maintenance & Support</h1>
+    <p class="fade-in">Reliable IT maintenance and 24/7 support services to keep your websites, mobile apps, and AI solutions running smoothly, securely, and efficiently.</p>
+    
+    <div class="maintenance-features fade-in">
+      <span class="maintenance-feature">🛠️ Proactive Monitoring</span>
+      <span class="maintenance-feature">🔧 Quick Bug Fixing</span>
+      <span class="maintenance-feature">🔄 Regular Updates</span>
+      <span class="maintenance-feature">🛡️ Security Patches</span>
+      <span class="maintenance-feature">📞 24/7 Support</span>
+    </div>
+  </section>
 
-<section id="services-section">
-<h2>Maintenance Services</h2>
-<div class="cards-container">
-  <div class="card" data-aos="fade-up" data-aos-delay="100">
-    <i class="fas fa-bug"></i>
-    <h3>Bug Fixing</h3>
-    <p>Quick identification and resolution of software bugs to ensure smooth user experience and system stability.</p>
-  </div>
-  <div class="card" data-aos="fade-up" data-aos-delay="200">
-    <i class="fas fa-sync-alt"></i>
-    <h3>Updates & Upgrades</h3>
-    <p>Regular software updates and upgrades to keep your platforms secure, optimized, and compatible with latest technologies.</p>
-  </div>
-  <div class="card" data-aos="fade-up" data-aos-delay="300">
-    <i class="fas fa-server"></i>
-    <h3>Server Monitoring</h3>
-    <p>Continuous server monitoring to detect issues early and maintain high availability for your services.</p>
-  </div>
-  <div class="card" data-aos="fade-up" data-aos-delay="400">
-    <i class="fas fa-headset"></i>
-    <h3>24/7 Support</h3>
-    <p>Round-the-clock support to assist your team with technical challenges and ensure uninterrupted operations.</p>
-  </div>
-</div>
-</section>
+  <!-- Maintenance Services Section -->
+  <section id="services-section">
+    <h2>Comprehensive Maintenance Services</h2>
+    <div class="cards-container">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-bug" aria-hidden="true"></i>
+        <h3>Bug Fixing & Troubleshooting</h3>
+        <p>Rapid identification and resolution of software bugs, performance issues, and technical problems. Comprehensive debugging with detailed reporting and preventive measures.</p>
+      </div>
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-sync-alt" aria-hidden="true"></i>
+        <h3>Updates & Upgrades</h3>
+        <p>Regular software updates, security patches, and version upgrades to keep your platforms secure, optimized, and compatible with the latest technologies and standards.</p>
+      </div>
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <i class="fas fa-server" aria-hidden="true"></i>
+        <h3>Server Monitoring</h3>
+        <p>24/7 server and infrastructure monitoring with real-time alerts, performance tracking, and proactive maintenance to ensure maximum uptime and reliability.</p>
+      </div>
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <i class="fas fa-headset" aria-hidden="true"></i>
+        <h3>24/7 Technical Support</h3>
+        <p>Round-the-clock technical support via multiple channels including phone, email, and chat. Quick response times and expert solutions for all your technical challenges.</p>
+      </div>
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="500">
+        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        <h3>Security Maintenance</h3>
+        <p>Regular security audits, vulnerability assessments, and implementation of security patches to protect your systems from threats and ensure data protection compliance.</p>
+      </div>
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="600">
+        <i class="fas fa-chart-line" aria-hidden="true"></i>
+        <h3>Performance Optimization</h3>
+        <p>Continuous performance monitoring and optimization to ensure fast loading times, efficient resource usage, and optimal user experience across all platforms.</p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-&copy; 2025 Code Cortex | All Rights Reserved
-</footer>
+  <!-- Support Levels -->
+  <section style="background: var(--panel);">
+    <h2>Support Plans</h2>
+    <div class="support-levels">
+      <div class="support-level basic" data-aos="fade-up">
+        <div class="level-header">
+          <h3>Basic Support</h3>
+          <div class="level-price">$99<span>/month</span></div>
+        </div>
+        <ul class="level-features">
+          <li>Business Hours Support</li>
+          <li>Basic Bug Fixing</li>
+          <li>Monthly Updates</li>
+          <li>Email Support</li>
+          <li>Standard Response Time</li>
+        </ul>
+      </div>
+      
+      <div class="support-level pro" data-aos="fade-up" data-aos-delay="100">
+        <div class="level-header">
+          <h3>Professional Support</h3>
+          <div class="level-price">$299<span>/month</span></div>
+        </div>
+        <ul class="level-features">
+          <li>24/7 Priority Support</li>
+          <li>Advanced Bug Fixing</li>
+          <li>Weekly Updates</li>
+          <li>Phone & Chat Support</li>
+          <li>1-hour Response Time</li>
+          <li>Server Monitoring</li>
+        </ul>
+      </div>
+      
+      <div class="support-level enterprise" data-aos="fade-up" data-aos-delay="200">
+        <div class="level-header">
+          <h3>Enterprise Support</h3>
+          <div class="level-price">Custom</div>
+        </div>
+        <ul class="level-features">
+          <li>Dedicated Support Team</li>
+          <li>Immediate Response</li>
+          <li>Real-time Updates</li>
+          <li>24/7 Multiple Channels</li>
+          <li>Advanced Monitoring</li>
+          <li>Custom SLAs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({once:true,duration:1000});
-</script>
+  <!-- Monitoring Dashboard Preview -->
+  <section>
+    <h2>Proactive Monitoring Dashboard</h2>
+    <div class="dashboard-preview" data-aos="fade-up">
+      <h3 style="color: var(--maintenance-primary); margin-bottom: 1rem;">Real-time System Health</h3>
+      <div class="dashboard-metrics">
+        <div class="metric">
+          <span class="metric-value">99.9%</span>
+          <span class="metric-label">Uptime</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">0.8s</span>
+          <span class="metric-label">Response Time</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">0</span>
+          <span class="metric-label">Active Issues</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">24/7</span>
+          <span class="metric-label">Monitoring</span>
+        </div>
+      </div>
+      <p style="color: var(--muted); font-size: 0.9rem;">
+        Our comprehensive monitoring dashboard provides real-time insights into your system performance, security status, and operational health.
+      </p>
+    </div>
+  </section>
 
+  <!-- Process Section -->
+  <section style="background: var(--panel);">
+    <h2>Our Maintenance Process</h2>
+    <div class="process-steps">
+      <div class="process-step" data-aos="fade-up">
+        <div class="step-number">1</div>
+        <h3>Assessment & Planning</h3>
+        <p>Comprehensive system assessment to identify current issues, potential risks, and create a customized maintenance plan.</p>
+      </div>
+      
+      <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-number">2</div>
+        <h3>Proactive Monitoring</h3>
+        <p>Implement monitoring tools and establish alerts for performance metrics, security threats, and system health indicators.</p>
+      </div>
+      
+      <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-number">3</div>
+        <h3>Regular Maintenance</h3>
+        <p>Scheduled updates, security patches, performance optimizations, and preventive maintenance activities.</p>
+      </div>
+      
+      <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+        <div class="step-number">4</div>
+        <h3>Continuous Support</h3>
+        <p>24/7 technical support, incident response, and continuous improvement based on performance data and user feedback.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section>
+    <div class="cta-section" data-aos="fade-up">
+      <h3>Ensure Your Systems Run Smoothly</h3>
+      <p>Don't let technical issues disrupt your business. Our expert maintenance team is ready to keep your systems secure, updated, and performing at their best.</p>
+      <button class="cta-button" onclick="window.location.href='index.html#contact'">
+        Get Maintenance Support
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Code Cortex (SMC-Pvt.) Ltd. | Professional IT Maintenance & Support Services</p>
+    <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">
+      Keeping your digital solutions running smoothly 24/7
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Initialize AOS
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        once: true,
+        duration: 800,
+        offset: 100
+      });
+
+      // Add fade-in animation to elements
+      const fadeElements = document.querySelectorAll('.fade-in');
+      fadeElements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.2}s`;
+      });
+
+      // Header scroll behavior
+      let prevScroll = window.scrollY;
+      const header = document.querySelector('header');
+
+      window.addEventListener('scroll', () => {
+        if (window.innerWidth > 768) {
+          const currentScroll = window.scrollY;
+          if (currentScroll > prevScroll && currentScroll > 100) {
+            header.style.top = '-100px';
+          } else {
+            header.style.top = '0';
+          }
+          prevScroll = currentScroll;
+        }
+      });
+
+      // Animated metrics (optional enhancement)
+      const metrics = document.querySelectorAll('.metric-value');
+      metrics.forEach(metric => {
+        const finalValue = metric.textContent;
+        if (finalValue === '99.9%') {
+          animateValue(metric, 0, 99.9, 2000, '%');
+        } else if (finalValue === '0.8s') {
+          animateValue(metric, 0, 0.8, 2000, 's');
+        } else if (finalValue === '0') {
+          metric.textContent = '0';
+        } else if (finalValue === '24/7') {
+          metric.textContent = '24/7';
+        }
+      });
+
+      function animateValue(element, start, end, duration, suffix) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const value = progress * (end - start) + start;
+          element.textContent = value.toFixed(1) + suffix;
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+    });
+  </script>
 </body>
 </html>
