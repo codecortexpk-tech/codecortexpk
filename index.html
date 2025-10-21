@@ -151,6 +151,14 @@
       gap: 15px; 
     }
     
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      color: inherit;
+    }
+    
     .logo-img { 
       width: 55px; 
       height: 55px; 
@@ -168,6 +176,11 @@
       color: var(--text-primary);
       font-size: 1.5rem;
       font-weight: 700;
+      transition: color 0.3s ease;
+    }
+    
+    .logo-link:hover h1 {
+      color: var(--accent);
     }
 
     .main-nav { 
@@ -587,8 +600,10 @@
   <!-- Header -->
   <header data-aos="fade-down">
     <div class="header-left">
-      <img src="code_logo.png" alt="Code Cortex - Software House Pakistan" class="logo-img" width="55" height="55" />
-      <h1>Code Cortex</h1>
+      <a href="index.html" class="logo-link" aria-label="Code Cortex - Return to home page">
+        <img src="code_logo.png" alt="Code Cortex - Software House Pakistan" class="logo-img" width="55" height="55" />
+        <h1>Code Cortex</h1>
+      </a>
     </div>
 
     <nav class="main-nav" aria-label="Main navigation">
