@@ -401,6 +401,29 @@
       color: var(--accent); 
     }
 
+    /* Service buttons - reduced size to fit text */
+    .service-btn {
+      background: var(--cta); 
+      color: #fff; 
+      padding: 10px 20px; 
+      border: none; 
+      border-radius: 20px; 
+      font-size: 0.9rem; 
+      font-weight: 600;
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+      width: fit-content;
+      margin: 0 auto;
+    }
+    
+    .service-btn:hover,
+    .service-btn:focus { 
+      background: #ff4b4b; 
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    }
+
     /* Testimonials */
     .testimonial { 
       background: var(--panel); 
@@ -416,176 +439,6 @@
       margin-top: 1.5rem; 
       color: var(--accent);
       font-style: normal;
-    }
-
-    /* Enhanced Form Styles */
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border-radius: 8px;
-      border: 2px solid transparent;
-      background: var(--bg);
-      color: var(--text-primary);
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      font-family: inherit;
-    }
-
-    .form-group select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ccc' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 15px center;
-      background-size: 12px;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(255, 226, 125, 0.2);
-    }
-
-    /* File Upload Styles */
-    .file-upload-container {
-      position: relative;
-      border: 2px dashed rgba(255, 255, 255, 0.3);
-      border-radius: 8px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .file-upload-container:hover {
-      border-color: var(--accent);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .file-upload-container input[type="file"] {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    .file-upload-label {
-      pointer-events: none;
-    }
-
-    .file-upload-label i {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .file-upload-label span {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .file-upload-label small {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .help-text {
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-top: 0.25rem;
-      display: block;
-    }
-
-    /* Submit Button */
-    .submit-btn {
-      background: var(--cta);
-      color: #fff;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .submit-btn:hover {
-      background: #ff4b4b;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
-    }
-
-    /* Contact Methods */
-    .contact-alternatives {
-      margin-top: 3rem;
-    }
-
-    .contact-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .contact-method {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.5rem;
-      background: var(--panel);
-      border-radius: 10px;
-      border-left: 4px solid var(--accent);
-    }
-
-    .contact-method i {
-      font-size: 1.5rem;
-      color: var(--accent);
-    }
-
-    .contact-method strong {
-      display: block;
-      color: var(--text-primary);
-      margin-bottom: 0.25rem;
-    }
-
-    .contact-method a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .contact-method a:hover {
-      color: var(--accent);
     }
 
     /* Footer */
@@ -698,18 +551,6 @@
         bottom: 10px;
         left: 10px;
       }
-      
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-      
-      .contact-methods {
-        grid-template-columns: 1fr;
-      }
-      
-      .file-upload-container {
-        padding: 1.5rem;
-      }
     }
 
     /* High contrast support */
@@ -760,7 +601,7 @@
         <a href="#about">About</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
       </div>
     </nav>
     <button class="login-btn" onclick="window.location.href='login.html'" aria-label="Admin login">
@@ -774,7 +615,7 @@
     <section class="hero" id="hero" data-aos="fade-up">
       <h2 id="animatedText" aria-live="polite">Innovating Ideas.</h2>
       <p>We design & build scalable Websites, Mobile apps, and AI-driven solutions for businesses worldwide.</p>
-      <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Get in touch with Code Cortex">
+      <button class="cta-btn" onclick="window.location.href='contact.html'" aria-label="Get in touch with Code Cortex">
         Get in Touch
       </button>
     </section>
@@ -787,7 +628,7 @@
           <i class="fas fa-code" aria-hidden="true"></i>
           <h3>Web Development</h3>
           <p>Responsive, SEO-optimized websites using modern technologies like React, Vue.js, and Node.js with best practices.</p>
-          <button class="cta-btn" onclick="window.location.href='web-development.html'" aria-label="More info about web development services">
+          <button class="service-btn" onclick="window.location.href='web-development.html'" aria-label="More info about web development services">
             More info
           </button>
         </div>
@@ -796,7 +637,7 @@
           <i class="fas fa-mobile-alt" aria-hidden="true"></i>
           <h3>Mobile Apps</h3>
           <p>Custom Android & iOS applications with modern UI/UX, cross-platform solutions, and seamless performance.</p>
-          <button class="cta-btn" onclick="window.location.href='mobile-apps.html'" aria-label="Learn more about mobile app development">
+          <button class="service-btn" onclick="window.location.href='mobile-apps.html'" aria-label="Learn more about mobile app development">
             More info
           </button>
         </div>
@@ -805,7 +646,7 @@
           <i class="fas fa-brain" aria-hidden="true"></i>
           <h3>AI Solutions</h3>
           <p>Smart applications powered by AI & machine learning to automate processes and drive business innovation.</p>
-          <button class="cta-btn" onclick="window.location.href='ai-solutions.html'" aria-label="Learn more about AI solutions">
+          <button class="service-btn" onclick="window.location.href='ai-solutions.html'" aria-label="Learn more about AI solutions">
             More info
           </button>
         </div>
@@ -814,7 +655,7 @@
           <i class="fas fa-headset" aria-hidden="true"></i>
           <h3>Maintenance & Support</h3>
           <p>Regular updates, bug fixes, performance monitoring, and dedicated IT support for all your digital solutions.</p>
-          <button class="cta-btn" onclick="window.location.href='maintenance.html'" aria-label="Learn more about maintenance services">
+          <button class="service-btn" onclick="window.location.href='maintenance.html'" aria-label="Learn more about maintenance services">
             More info
           </button>
         </div>
@@ -881,158 +722,23 @@
       </div>
     </section>
 
-    <!-- Enhanced Contact Section -->
+    <!-- Contact Section -->
     <section id="contact" data-aos="fade-up">
       <h2>Get In Touch</h2>
       <p style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Ready to start your project? Fill out the form below and we'll get back to you within 24 hours.
+        Ready to start your project? Visit our contact page to get in touch with our team.
       </p>
       
-      <form id="contactForm" action="https://formspree.io/f/mrbyedog" method="POST" enctype="multipart/form-data">
-        <!-- Personal Information -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Your Name *</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required aria-required="true">
-          </div>
-          
-          <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" placeholder="+92 XXX XXXXXXX" required aria-required="true">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true">
-          </div>
-          
-          <div class="form-group">
-            <label for="company">Company/Organization</label>
-            <input type="text" id="company" name="company" placeholder="Your company name (optional)">
-          </div>
-        </div>
-
-        <!-- Project Details -->
-        <div class="form-group">
-          <label for="service">Service Needed *</label>
-          <select id="service" name="service" required aria-required="true">
-            <option value="">Select a service</option>
-            <option value="web-development">Web Development</option>
-            <option value="mobile-apps">Mobile App Development</option>
-            <option value="ai-solutions">AI Solutions</option>
-            <option value="maintenance">IT Maintenance & Support</option>
-            <option value="multiple">Multiple Services</option>
-            <option value="consultation">Consultation</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="budget">Project Budget (PKR)</label>
-          <select id="budget" name="budget">
-            <option value="">Select budget range</option>
-            <option value="10k-25k">Rs. 10,000 - 25,000</option>
-            <option value="25k-50k">Rs. 25,000 - 50,000</option>
-            <option value="50k-100k">Rs. 50,000 - 100,000</option>
-            <option value="100k-250k">Rs. 100,000 - 250,000</option>
-            <option value="250k+">Rs. 250,000+</option>
-            <option value="not-sure">Not sure yet</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="timeline">Project Timeline</label>
-          <select id="timeline" name="timeline">
-            <option value="">Select timeline</option>
-            <option value="urgent">Urgent (1-2 weeks)</option>
-            <option value="2-4 weeks">2-4 weeks</option>
-            <option value="1-2 months">1-2 months</option>
-            <option value="2-4 months">2-4 months</option>
-            <option value="flexible">Flexible</option>
-          </select>
-        </div>
-
-        <!-- File Upload -->
-        <div class="form-group">
-          <label for="files">Project Files (Optional)</label>
-          <div class="file-upload-container">
-            <input type="file" id="files" name="files" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip,.rar" aria-describedby="file-help">
-            <div class="file-upload-label">
-              <i class="fas fa-cloud-upload-alt"></i>
-              <span>Click to upload files or drag and drop</span>
-              <small>PDF, DOC, Images, ZIP (Max 10MB)</small>
-            </div>
-          </div>
-          <small id="file-help" class="help-text">You can upload project briefs, designs, or reference materials</small>
-        </div>
-
-        <!-- Project Description -->
-        <div class="form-group">
-          <label for="message">Project Details *</label>
-          <textarea id="message" name="message" rows="6" placeholder="Please describe your project requirements, goals, and any specific features you need..." required aria-required="true"></textarea>
-          <small class="help-text">The more details you provide, the better we can understand your needs</small>
-        </div>
-
-        <!-- Hidden Honeypot -->
-        <input type="text" name="_honeypot" style="display:none" aria-hidden="true">
-        
-        <!-- Submit Button -->
-        <button type="submit" class="submit-btn" aria-label="Submit project inquiry">
-          <i class="fas fa-paper-plane"></i>
-          Send Project Inquiry
-        </button>
-      </form>
-      
-      <p id="formMessage" style="margin-top:1rem; color:var(--cta); font-weight:bold;" aria-live="polite"></p>
-      
-      <div class="contact-alternatives" data-aos="fade-up">
-        <h3 style="margin-top: 3rem; margin-bottom: 1rem;">Prefer other methods?</h3>
-        <div class="contact-methods">
-          <div class="contact-method">
-            <i class="fas fa-phone"></i>
-            <div>
-              <strong>Call Us</strong>
-              <p><a href="tel:+923157227688">+92 315 722 7688</a></p>
-            </div>
-          </div>
-          <div class="contact-method">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <strong>Email Us</strong>
-              <p><a href="mailto:codecortexpk@gmail.com">codecortexpk@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="contact-method">
-            <i class="fab fa-whatsapp"></i>
-            <div>
-              <strong>WhatsApp</strong>
-              <p><a href="https://wa.me/923157227688" target="_blank">Message us directly</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Map -->
-      <iframe
-        data-aos="fade-up"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.1137840996367!2d72.34718411494058!3d33.80811708071268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df212d8d36468d%3A0x6e226ec2a3f8b8df!2sMehria%20Town%2C%20Attock%2C%20Pakistan!5e0!3m2!1sen!2s!4v1694511111111"
-        width="100%" 
-        height="400" 
-        style="border:0; border-radius:15px; margin-top: 3rem;" 
-        allowfullscreen="" 
-        loading="lazy"
-        title="Code Cortex Location in Attock, Pakistan"
-        aria-label="Map showing Code Cortex location in Attock, Pakistan">
-      </iframe>
+      <button class="cta-btn" onclick="window.location.href='contact.html'" aria-label="Go to contact page">
+        Contact Us
+      </button>
     </section>
   </main>
 
   <!-- Footer -->
   <footer data-aos="fade-up">
     <div class="footer-content">
-      <p>&copy; 2023 Code Cortex (Pvt.) Ltd. | All Rights Reserved</p>
+      <p>&copy; 2024 Code Cortex (Pvt.) Ltd. | All Rights Reserved</p>
       <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">
         Transforming ideas into digital reality
       </p>
@@ -1129,94 +835,6 @@
         }
       });
 
-      // Enhanced Contact Form Handling
-      const contactForm = document.getElementById('contactForm');
-      const formMessage = document.getElementById('formMessage');
-
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Basic validation
-        const requiredFields = contactForm.querySelectorAll('[required]');
-        let valid = true;
-        
-        requiredFields.forEach(field => {
-          if (!field.value.trim()) {
-            field.style.borderColor = 'var(--cta)';
-            valid = false;
-          } else {
-            field.style.borderColor = '';
-          }
-        });
-        
-        if (!valid) {
-          formMessage.textContent = "❌ Please fill in all required fields.";
-          return false;
-        }
-        
-        // Check for multiple submissions
-        const lastSubmit = localStorage.getItem('lastSubmit');
-        const now = new Date().getTime();
-        
-        if (lastSubmit && (now - lastSubmit < 24 * 60 * 60 * 1000)) {
-          formMessage.textContent = "❌ Please wait 24 hours before sending another inquiry.";
-          return false;
-        }
-        
-        // File size validation
-        const fileInput = document.getElementById('files');
-        if (fileInput.files.length > 0) {
-          const maxSize = 10 * 1024 * 1024; // 10MB
-          for (let file of fileInput.files) {
-            if (file.size > maxSize) {
-              formMessage.textContent = `❌ File "${file.name}" is too large. Maximum size is 10MB.`;
-              return false;
-            }
-          }
-        }
-        
-        // Show loading state
-        const submitBtn = contactForm.querySelector('.submit-btn');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        formMessage.textContent = "⏳ Sending your project inquiry...";
-        
-        // Simulate form submission (replace with actual Formspree submission)
-        setTimeout(() => {
-          localStorage.setItem('lastSubmit', now);
-          
-          // Show success message
-          formMessage.textContent = "✅ Thank you! Your project inquiry has been sent. We'll contact you within 24 hours.";
-          formMessage.style.color = "var(--maintenance-primary)";
-          
-          // Reset form
-          contactForm.reset();
-          
-          // Reset button
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-          
-          // Clear message after 10 seconds
-          setTimeout(() => {
-            formMessage.textContent = '';
-            formMessage.style.color = '';
-          }, 10000);
-          
-        }, 2000);
-      });
-
-      // Real-time validation
-      const inputs = contactForm.querySelectorAll('input, select, textarea');
-      inputs.forEach(input => {
-        input.addEventListener('input', () => {
-          if (input.value.trim()) {
-            input.style.borderColor = '';
-          }
-        });
-      });
-
       // Theme toggle functionality
       const themeBtn = document.getElementById('themeToggle');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -1282,6 +900,3 @@
   </script>
 </body>
 </html>
-
-
-
