@@ -27,6 +27,10 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" as="style">
   
+  <!-- Load CSS Files -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
   <!-- Favicon -->
   <link rel="icon" href="code_logo.png" type="image/x-icon">
   <link rel="apple-touch-icon" href="code_logo.png">
@@ -147,6 +151,14 @@
       gap: 15px;
     }
     
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      color: inherit;
+    }
+    
     .logo-img {
       width: 55px;
       height: 55px;
@@ -164,6 +176,11 @@
       color: var(--text-primary);
       font-size: 1.5rem;
       font-weight: 700;
+      transition: color 0.3s ease;
+    }
+    
+    .logo-link:hover h1 {
+      color: var(--accent);
     }
 
     nav {
@@ -506,12 +523,15 @@
   <!-- Header -->
   <header>
     <div class="header-left">
-      <img src="code_logo.png" alt="Code Cortex - AI & Machine Learning Solutions Pakistan" class="logo-img" width="55" height="55" />
-      <h1>Code Cortex</h1>
+      <a href="index.html" class="logo-link" aria-label="Code Cortex - Return to home page">
+        <img src="code_logo.png" alt="Code Cortex - AI & Machine Learning Solutions Pakistan" class="logo-img" width="55" height="55" />
+        <h1>Code Cortex</h1>
+      </a>
     </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="index.html#services">Services</a>
+      <a href="index.html#about">About</a>
       <a href="index.html#contact">Contact</a>
       <button class="back-btn" onclick="window.location.href='index.html'" aria-label="Back to homepage">
         ← Back to Home
