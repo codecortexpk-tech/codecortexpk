@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /login.html
-Crawl-delay: 1
 
-# Sitemaps
 Sitemap: https://codecortexpk-tech.github.io/codecortexpk/sitemap.xml
