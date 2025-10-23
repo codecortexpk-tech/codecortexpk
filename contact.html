@@ -698,7 +698,7 @@
       <div class="contact-container">
         <!-- Contact Form -->
         <div class="form-container">
-          <form id="contactForm" action="https://formspree.io/f/mrbyedog" method="POST" enctype="multipart/form-data">
+          <form id="contactForm" action="https://formspree.io/f/xvgbjgdw" method="POST" enctype="multipart/form-data">
             <!-- Personal Information -->
             <div class="form-row">
               <div class="form-group">
@@ -981,15 +981,6 @@
           return false;
         }
         
-        // Check for multiple submissions
-        const lastSubmit = localStorage.getItem('lastSubmit');
-        const now = new Date().getTime();
-        
-        if (lastSubmit && (now - lastSubmit < 24 * 60 * 60 * 1000)) {
-          formMessage.textContent = "❌ Please wait 24 hours before sending another inquiry.";
-          return false;
-        }
-        
         // File size validation
         const fileInput = document.getElementById('files');
         if (fileInput.files.length > 0) {
@@ -1012,8 +1003,6 @@
         
         // Simulate form submission (replace with actual Formspree submission)
         setTimeout(() => {
-          localStorage.setItem('lastSubmit', now);
-          
           // Show success message
           formMessage.textContent = "✅ Thank you! Your project inquiry has been sent. We'll contact you within 24 hours.";
           formMessage.style.color = "var(--maintenance-primary)";
