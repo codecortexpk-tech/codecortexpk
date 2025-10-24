@@ -25,6 +25,8 @@
       --accent: #2563eb;
       --cta: #0f172a;
       --border: #cbd5e1;
+      --success: #10b981;
+      --error: #ef4444;
     }
 
     body {
@@ -66,6 +68,11 @@
       gap: 1rem;
     }
 
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
     input, textarea, select {
       width: 100%;
       padding: 0.8rem;
@@ -73,16 +80,23 @@
       border-radius: 8px;
       font-size: 1rem;
       transition: border-color 0.3s ease;
+      box-sizing: border-box;
     }
 
     input:focus, textarea:focus, select:focus {
       border-color: var(--accent);
       outline: none;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    input.error, textarea.error, select.error {
+      border-color: var(--error);
     }
 
     label {
       font-weight: 600;
       color: var(--cta);
+      margin-bottom: 0.5rem;
     }
 
     button {
@@ -94,10 +108,16 @@
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s ease;
+      font-weight: 600;
     }
 
     button:hover {
       background: #1e40af;
+    }
+
+    button:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
     }
 
     footer {
@@ -111,13 +131,68 @@
     #formMessage {
       margin-top: 1rem;
       font-weight: bold;
-      color: var(--accent);
       text-align: center;
+      padding: 0.75rem;
+      border-radius: 8px;
+    }
+
+    .success {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    .error {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+
+    .info {
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .error-message {
+      color: var(--error);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-info h3 {
+      color: var(--cta);
+      margin-bottom: 1rem;
+    }
+
+    .contact-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
     }
 
     @media (max-width: 600px) {
       main { padding: 1.5rem; }
       header h1 { font-size: 1.6rem; }
+      .contact-details { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -125,40 +200,93 @@
 
   <header>
     <h1>Contact Code Cortex</h1>
-    <p>Let's discuss your project — we’d love to hear from you!</p>
+    <p>Let's discuss your project — we'd love to hear from you!</p>
   </header>
 
   <main>
     <h2>Send us a message</h2>
     <form id="contactForm" action="https://formspree.io/f/xvgbjgdw" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="New Project Inquiry - Code Cortex">
-      <input type="hidden" name="_redirect" value="https://codecortexpk-tech.github.io/codecortexpk/thank-you.html">
+      <input type="hidden" name="_replyto" id="replyTo">
+      <input type="hidden" name="_cc" value="your-email@gmail.com"> <!-- Add your Gmail here -->
+      
+      <!-- Add honeypot field to prevent spam -->
+      <input type="text" name="_gotcha" style="display:none">
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+        <div class="error-message" id="nameError"></div>
+      </div>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <div class="error-message" id="emailError"></div>
+      </div>
 
-      <label for="service">Interested In</label>
-      <select id="service" name="service" required>
-        <option value="">Select a service</option>
-        <option>Web Development</option>
-        <option>Mobile App Development</option>
-        <option>AI Solutions</option>
-        <option>Branding & Design</option>
-        <option>IT Consultancy</option>
-      </select>
+      <div class="form-group">
+        <label for="service">Interested In</label>
+        <select id="service" name="service" required>
+          <option value="">Select a service</option>
+          <option>Web Development</option>
+          <option>Mobile App Development</option>
+          <option>AI Solutions</option>
+          <option>Branding & Design</option>
+          <option>IT Consultancy</option>
+          <option>Other</option>
+        </select>
+        <div class="error-message" id="serviceError"></div>
+      </div>
 
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+        <div class="error-message" id="messageError"></div>
+      </div>
 
-      <label for="file">Attach File (optional)</label>
-      <input type="file" id="file" name="file">
+      <div class="form-group">
+        <label for="file">Attach File (optional)</label>
+        <input type="file" id="file" name="file">
+      </div>
 
-      <button type="submit">Send Message</button>
-      <p id="formMessage" aria-live="polite"></p>
+      <button type="submit" id="submitBtn">Send Message</button>
+      <div id="formMessage" aria-live="polite"></div>
     </form>
+
+    <div class="contact-info">
+      <h3>Other Ways to Reach Us</h3>
+      <div class="contact-details">
+        <div class="contact-item">
+          <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          <div>
+            <strong>Email</strong><br>
+            <a href="mailto:info@codecortex.com">info@codecortex.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          <div>
+            <strong>Phone</strong><br>
+            <a href="tel:+923001234567">+92 300 1234567</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+          <div>
+            <strong>Address</strong><br>
+            Karachi, Pakistan
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -167,29 +295,111 @@
 
   <!-- Form Handling Script -->
   <script>
-  document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const formMessage = document.getElementById('formMessage');
-    formMessage.textContent = "Sending...";
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const formMessage = document.getElementById('formMessage');
+      const submitBtn = document.getElementById('submitBtn');
+      
+      // Set reply-to field to match email field
+      const emailField = document.getElementById('email');
+      const replyToField = document.getElementById('replyTo');
+      
+      emailField.addEventListener('input', function() {
+        replyToField.value = emailField.value;
       });
-
-      if (response.ok) {
-        formMessage.textContent = "✅ Thank you! Your message has been sent successfully.";
-        form.reset();
-      } else {
-        formMessage.textContent = "⚠️ Something went wrong. Please try again.";
+      
+      // Form validation
+      function validateForm() {
+        let isValid = true;
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const service = document.getElementById('service');
+        const message = document.getElementById('message');
+        
+        // Reset error states
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+        document.querySelectorAll('input, textarea, select').forEach(el => el.classList.remove('error'));
+        
+        // Name validation
+        if (!name.value.trim()) {
+          document.getElementById('nameError').textContent = 'Name is required';
+          name.classList.add('error');
+          isValid = false;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim()) {
+          document.getElementById('emailError').textContent = 'Email is required';
+          email.classList.add('error');
+          isValid = false;
+        } else if (!emailRegex.test(email.value)) {
+          document.getElementById('emailError').textContent = 'Please enter a valid email address';
+          email.classList.add('error');
+          isValid = false;
+        }
+        
+        // Service validation
+        if (!service.value) {
+          document.getElementById('serviceError').textContent = 'Please select a service';
+          service.classList.add('error');
+          isValid = false;
+        }
+        
+        // Message validation
+        if (!message.value.trim()) {
+          document.getElementById('messageError').textContent = 'Message is required';
+          message.classList.add('error');
+          isValid = false;
+        } else if (message.value.trim().length < 10) {
+          document.getElementById('messageError').textContent = 'Message should be at least 10 characters';
+          message.classList.add('error');
+          isValid = false;
+        }
+        
+        return isValid;
       }
-    } catch (error) {
-      formMessage.textContent = "🚫 Network error. Please check your connection.";
-    }
-  });
+      
+      // Form submission
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+          formMessage.textContent = "Please fix the errors above";
+          formMessage.className = "error";
+          return;
+        }
+        
+        submitBtn.disabled = true;
+        formMessage.textContent = "Sending...";
+        formMessage.className = "info";
+        
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            formMessage.textContent = "✅ Thank you! Your message has been sent successfully. We'll get back to you soon.";
+            formMessage.className = "success";
+            form.reset();
+          } else {
+            const errorData = await response.json();
+            formMessage.textContent = "⚠️ Something went wrong. Please try again or contact us directly.";
+            formMessage.className = "error";
+            console.error('Formspree error:', errorData);
+          }
+        } catch (error) {
+          formMessage.textContent = "🚫 Network error. Please check your connection and try again.";
+          formMessage.className = "error";
+          console.error('Submission error:', error);
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    });
   </script>
 
 </body>
