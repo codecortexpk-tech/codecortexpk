@@ -41,6 +41,8 @@
       --text-primary: #ffffff;
       --shadow: 0 4px 20px rgba(0,0,0,0.4);
       --maintenance-primary: #00cc88;
+      --success: #10b981;
+      --error: #ef4444;
     }
     
     [data-theme="light"] {
@@ -52,6 +54,8 @@
       --text-primary: #000000;
       --shadow: 0 4px 20px rgba(0,0,0,0.1);
       --maintenance-primary: #00a86b;
+      --success: #059669;
+      --error: #dc2626;
     }
 
     * { 
@@ -370,6 +374,19 @@
       box-shadow: 0 0 0 3px rgba(255, 226, 125, 0.2);
     }
 
+    /* Form validation styles */
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error {
+      border-color: var(--error);
+    }
+
+    .error-message {
+      color: var(--error);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
     /* File Upload Styles */
     .file-upload-container {
       position: relative;
@@ -447,6 +464,40 @@
       background: #ff4b4b;
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+    }
+
+    .submit-btn:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Form Message Styles */
+    #formMessage {
+      margin-top: 1rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.75rem;
+      border-radius: 8px;
+    }
+
+    .success {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    .error {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+
+    .info {
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
     }
 
     /* Contact Methods */
@@ -698,17 +749,25 @@
       <div class="contact-container">
         <!-- Contact Form -->
         <div class="form-container">
-          <form id="contactForm" action="https://formspree.io/f/mrbyedog" method="POST" enctype="multipart/form-data">
+          <form id="contactForm" action="https://formspree.io/f/xvgbjgdw" method="POST" enctype="multipart/form-data">
+            <!-- Hidden fields for Formspree configuration -->
+            <input type="hidden" name="_subject" value="New Project Inquiry - Code Cortex">
+            <input type="hidden" name="_replyto" id="replyTo">
+            <input type="hidden" name="_cc" value="codecortexpk@gmail.com">
+            <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
+            
             <!-- Personal Information -->
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Your Name *</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required aria-required="true">
+                <div class="error-message" id="nameError"></div>
               </div>
               
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
                 <input type="tel" id="phone" name="phone" placeholder="+92 XXX XXXXXXX" required aria-required="true">
+                <div class="error-message" id="phoneError"></div>
               </div>
             </div>
 
@@ -716,6 +775,7 @@
               <div class="form-group">
                 <label for="email">Email Address *</label>
                 <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true">
+                <div class="error-message" id="emailError"></div>
               </div>
               
               <div class="form-group">
@@ -737,6 +797,7 @@
                 <option value="consultation">Consultation</option>
                 <option value="other">Other</option>
               </select>
+              <div class="error-message" id="serviceError"></div>
             </div>
 
             <div class="form-group">
@@ -782,20 +843,18 @@
             <div class="form-group">
               <label for="message">Project Details *</label>
               <textarea id="message" name="message" rows="6" placeholder="Please describe your project requirements, goals, and any specific features you need..." required aria-required="true"></textarea>
+              <div class="error-message" id="messageError"></div>
               <small class="help-text">The more details you provide, the better we can understand your needs</small>
             </div>
-
-            <!-- Hidden Honeypot -->
-            <input type="text" name="_honeypot" style="display:none" aria-hidden="true">
             
             <!-- Submit Button -->
-            <button type="submit" class="submit-btn" aria-label="Submit project inquiry">
+            <button type="submit" class="submit-btn" id="submitBtn" aria-label="Submit project inquiry">
               <i class="fas fa-paper-plane"></i>
               Send Project Inquiry
             </button>
           </form>
           
-          <p id="formMessage" style="margin-top:1rem; color:var(--cta); font-weight:bold;" aria-live="polite"></p>
+          <div id="formMessage" aria-live="polite"></div>
         </div>
 
         <!-- Contact Information -->
@@ -959,35 +1018,71 @@
       // Enhanced Contact Form Handling
       const contactForm = document.getElementById('contactForm');
       const formMessage = document.getElementById('formMessage');
-
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      
+      // Set reply-to field to match email field
+      const emailField = document.getElementById('email');
+      const replyToField = document.getElementById('replyTo');
+      
+      emailField.addEventListener('input', function() {
+        replyToField.value = emailField.value;
+      });
+      
+      // Form validation
+      function validateForm() {
+        let isValid = true;
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const service = document.getElementById('service');
+        const message = document.getElementById('message');
         
-        // Basic validation
-        const requiredFields = contactForm.querySelectorAll('[required]');
-        let valid = true;
+        // Reset error states
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+        document.querySelectorAll('input, textarea, select').forEach(el => el.classList.remove('error'));
         
-        requiredFields.forEach(field => {
-          if (!field.value.trim()) {
-            field.style.borderColor = 'var(--cta)';
-            valid = false;
-          } else {
-            field.style.borderColor = '';
-          }
-        });
-        
-        if (!valid) {
-          formMessage.textContent = "❌ Please fill in all required fields.";
-          return false;
+        // Name validation
+        if (!name.value.trim()) {
+          document.getElementById('nameError').textContent = 'Name is required';
+          name.classList.add('error');
+          isValid = false;
         }
         
-        // Check for multiple submissions
-        const lastSubmit = localStorage.getItem('lastSubmit');
-        const now = new Date().getTime();
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim()) {
+          document.getElementById('emailError').textContent = 'Email is required';
+          email.classList.add('error');
+          isValid = false;
+        } else if (!emailRegex.test(email.value)) {
+          document.getElementById('emailError').textContent = 'Please enter a valid email address';
+          email.classList.add('error');
+          isValid = false;
+        }
         
-        if (lastSubmit && (now - lastSubmit < 24 * 60 * 60 * 1000)) {
-          formMessage.textContent = "❌ Please wait 24 hours before sending another inquiry.";
-          return false;
+        // Phone validation
+        if (!phone.value.trim()) {
+          document.getElementById('phoneError').textContent = 'Phone number is required';
+          phone.classList.add('error');
+          isValid = false;
+        }
+        
+        // Service validation
+        if (!service.value) {
+          document.getElementById('serviceError').textContent = 'Please select a service';
+          service.classList.add('error');
+          isValid = false;
+        }
+        
+        // Message validation
+        if (!message.value.trim()) {
+          document.getElementById('messageError').textContent = 'Message is required';
+          message.classList.add('error');
+          isValid = false;
+        } else if (message.value.trim().length < 10) {
+          document.getElementById('messageError').textContent = 'Message should be at least 10 characters';
+          message.classList.add('error');
+          isValid = false;
         }
         
         // File size validation
@@ -997,51 +1092,53 @@
           for (let file of fileInput.files) {
             if (file.size > maxSize) {
               formMessage.textContent = `❌ File "${file.name}" is too large. Maximum size is 10MB.`;
-              return false;
+              formMessage.className = "error";
+              isValid = false;
             }
           }
         }
         
-        // Show loading state
-        const submitBtn = contactForm.querySelector('.submit-btn');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        return isValid;
+      }
+      
+      // Form submission
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+          formMessage.textContent = "Please fix the errors above";
+          formMessage.className = "error";
+          return;
+        }
+        
         submitBtn.disabled = true;
+        formMessage.textContent = "Sending...";
+        formMessage.className = "info";
         
-        formMessage.textContent = "⏳ Sending your project inquiry...";
-        
-        // Simulate form submission (replace with actual Formspree submission)
-        setTimeout(() => {
-          localStorage.setItem('lastSubmit', now);
-          
-          // Show success message
-          formMessage.textContent = "✅ Thank you! Your project inquiry has been sent. We'll contact you within 24 hours.";
-          formMessage.style.color = "var(--maintenance-primary)";
-          
-          // Reset form
-          contactForm.reset();
-          
-          // Reset button
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-          
-          // Clear message after 10 seconds
-          setTimeout(() => {
-            formMessage.textContent = '';
-            formMessage.style.color = '';
-          }, 10000);
-          
-        }, 2000);
-      });
+        try {
+          const response = await fetch(contactForm.action, {
+            method: contactForm.method,
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+          });
 
-      // Real-time validation
-      const inputs = contactForm.querySelectorAll('input, select, textarea');
-      inputs.forEach(input => {
-        input.addEventListener('input', () => {
-          if (input.value.trim()) {
-            input.style.borderColor = '';
+          if (response.ok) {
+            formMessage.textContent = "✅ Thank you! Your message has been sent successfully. We'll get back to you soon.";
+            formMessage.className = "success";
+            contactForm.reset();
+          } else {
+            const errorData = await response.json();
+            formMessage.textContent = "⚠️ Something went wrong. Please try again or contact us directly.";
+            formMessage.className = "error";
+            console.error('Formspree error:', errorData);
           }
-        });
+        } catch (error) {
+          formMessage.textContent = "🚫 Network error. Please check your connection and try again.";
+          formMessage.className = "error";
+          console.error('Submission error:', error);
+        } finally {
+          submitBtn.disabled = false;
+        }
       });
 
       // Theme toggle functionality
