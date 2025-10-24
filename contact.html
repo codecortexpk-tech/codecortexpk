@@ -25,8 +25,6 @@
       --accent: #2563eb;
       --cta: #0f172a;
       --border: #cbd5e1;
-      --success: #10b981;
-      --error: #ef4444;
     }
 
     body {
@@ -113,27 +111,8 @@
     #formMessage {
       margin-top: 1rem;
       font-weight: bold;
-      text-align: center;
-      padding: 0.75rem;
-      border-radius: 8px;
-    }
-
-    .success {
-      background-color: rgba(16, 185, 129, 0.1);
-      color: var(--success);
-      border: 1px solid var(--success);
-    }
-
-    .error {
-      background-color: rgba(239, 68, 68, 0.1);
-      color: var(--error);
-      border: 1px solid var(--error);
-    }
-
-    .info {
-      background-color: rgba(37, 99, 235, 0.1);
       color: var(--accent);
-      border: 1px solid var(--accent);
+      text-align: center;
     }
 
     @media (max-width: 600px) {
@@ -146,19 +125,14 @@
 
   <header>
     <h1>Contact Code Cortex</h1>
-    <p>Let's discuss your project — we'd love to hear from you!</p>
+    <p>Let's discuss your project — we’d love to hear from you!</p>
   </header>
 
   <main>
     <h2>Send us a message</h2>
     <form id="contactForm" action="https://formspree.io/f/xvgbjgdw" method="POST" enctype="multipart/form-data">
-      <!-- Formspree Configuration for Email Forwarding -->
       <input type="hidden" name="_subject" value="New Project Inquiry - Code Cortex">
-      <input type="hidden" name="_replyto" id="replyTo">
-      <input type="hidden" name="_cc" value="codecortexpk@gmail.com"> <!-- Replace with your Gmail -->
-      
-      <!-- Honeypot field to prevent spam -->
-      <input type="text" name="_gotcha" style="display:none">
+      <input type="hidden" name="_redirect" value="https://codecortexpk-tech.github.io/codecortexpk/thank-you.html">
 
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -193,52 +167,28 @@
 
   <!-- Form Handling Script -->
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
     const formMessage = document.getElementById('formMessage');
-    
-    // Set reply-to field to match email field
-    const emailField = document.getElementById('email');
-    const replyToField = document.getElementById('replyTo');
-    
-    emailField.addEventListener('input', function() {
-      replyToField.value = emailField.value;
-    });
-    
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const submitBtn = form.querySelector('button[type="submit"]');
-      
-      // Disable button and show loading state
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending...";
-      formMessage.textContent = "Sending your message...";
-      formMessage.className = "info";
-      
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
+    formMessage.textContent = "Sending...";
 
-        if (response.ok) {
-          formMessage.textContent = "✅ Thank you! Your message has been sent successfully. We'll get back to you soon.";
-          formMessage.className = "success";
-          form.reset();
-        } else {
-          formMessage.textContent = "⚠️ Something went wrong. Please try again or contact us directly.";
-          formMessage.className = "error";
-        }
-      } catch (error) {
-        formMessage.textContent = "🚫 Network error. Please check your connection and try again.";
-        formMessage.className = "error";
-      } finally {
-        // Re-enable button
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send Message";
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        formMessage.textContent = "✅ Thank you! Your message has been sent successfully.";
+        form.reset();
+      } else {
+        formMessage.textContent = "⚠️ Something went wrong. Please try again.";
       }
-    });
+    } catch (error) {
+      formMessage.textContent = "🚫 Network error. Please check your connection.";
+    }
   });
   </script>
 
