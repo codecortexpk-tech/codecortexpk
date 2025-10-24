@@ -973,8 +973,8 @@
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    // Initialize AOS with performance optimizations
     document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
       AOS.init({
         once: true,
         offset: 50,
@@ -1015,8 +1015,8 @@
         }
       });
 
-      // Enhanced Contact Form Handling
-      const contactForm = document.getElementById('contactForm');
+      // Contact Form Handling
+      const form = document.getElementById('contactForm');
       const formMessage = document.getElementById('formMessage');
       const submitBtn = document.getElementById('submitBtn');
       
@@ -1033,7 +1033,6 @@
         let isValid = true;
         const name = document.getElementById('name');
         const email = document.getElementById('email');
-        const phone = document.getElementById('phone');
         const service = document.getElementById('service');
         const message = document.getElementById('message');
         
@@ -1060,13 +1059,6 @@
           isValid = false;
         }
         
-        // Phone validation
-        if (!phone.value.trim()) {
-          document.getElementById('phoneError').textContent = 'Phone number is required';
-          phone.classList.add('error');
-          isValid = false;
-        }
-        
         // Service validation
         if (!service.value) {
           document.getElementById('serviceError').textContent = 'Please select a service';
@@ -1085,24 +1077,11 @@
           isValid = false;
         }
         
-        // File size validation
-        const fileInput = document.getElementById('files');
-        if (fileInput.files.length > 0) {
-          const maxSize = 10 * 1024 * 1024; // 10MB
-          for (let file of fileInput.files) {
-            if (file.size > maxSize) {
-              formMessage.textContent = `❌ File "${file.name}" is too large. Maximum size is 10MB.`;
-              formMessage.className = "error";
-              isValid = false;
-            }
-          }
-        }
-        
         return isValid;
       }
       
       // Form submission
-      contactForm.addEventListener('submit', async function(e) {
+      form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         if (!validateForm()) {
@@ -1116,16 +1095,16 @@
         formMessage.className = "info";
         
         try {
-          const response = await fetch(contactForm.action, {
-            method: contactForm.method,
-            body: new FormData(contactForm),
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
             headers: { 'Accept': 'application/json' }
           });
 
           if (response.ok) {
             formMessage.textContent = "✅ Thank you! Your message has been sent successfully. We'll get back to you soon.";
             formMessage.className = "success";
-            contactForm.reset();
+            form.reset();
           } else {
             const errorData = await response.json();
             formMessage.textContent = "⚠️ Something went wrong. Please try again or contact us directly.";
@@ -1156,7 +1135,7 @@
         localStorage.setItem('theme', newTheme);
       });
 
-      // Performance: Lazy load non-critical resources
+      // Load non-critical resources
       const loadResources = () => {
         const styles = [
           'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
@@ -1171,7 +1150,7 @@
         });
       };
 
-      // Load non-critical resources after page load
+      // Load resources after page load
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', loadResources);
       } else {
