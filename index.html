@@ -172,14 +172,28 @@
       transform: rotate(5deg) scale(1.05);
     }
     
-    .header-left h1 {
+    .brand-container {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .brand-name {
       color: var(--text-primary);
       font-size: 1.5rem;
       font-weight: 700;
       transition: color 0.3s ease;
+      line-height: 1.2;
     }
     
-    .logo-link:hover h1 {
+    .brand-tagline {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    
+    .logo-link:hover .brand-name {
       color: var(--accent);
     }
 
@@ -282,6 +296,14 @@
       
       header {
         padding: 1rem;
+      }
+      
+      .brand-name {
+        font-size: 1.3rem;
+      }
+      
+      .brand-tagline {
+        font-size: 0.7rem;
       }
     }
 
@@ -585,7 +607,10 @@
     <div class="header-left">
       <a href="index.html" class="logo-link" aria-label="Code Cortex - Return to home page">
         <img src="code_logo.png" alt="Code Cortex - Software House Pakistan" class="logo-img" width="55" height="55" />
-        <h1>Code Cortex</h1>
+        <div class="brand-container">
+          <h1 class="brand-name">Code Cortex</h1>
+          <div class="brand-tagline">Digital Solution</div>
+        </div>
       </a>
     </div>
 
@@ -878,4 +903,3 @@
   </script>
 </body>
 </html>
-
