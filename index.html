@@ -130,7 +130,7 @@
       top: 6px;
     }
 
-    /* Header */
+    /* Header - FIXED SCROLL ISSUE */
     header { 
       position: fixed; 
       top: 0; 
@@ -145,7 +145,16 @@
       z-index: 1000; 
       box-shadow: var(--shadow); 
       flex-wrap: wrap;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease; /* Changed from all to transform only */
+      transform: translateY(0); /* Ensure header starts visible */
+    }
+    
+    .header-scrolled {
+      transform: translateY(-100%); /* Hide header when scrolling down */
+    }
+    
+    .header-visible {
+      transform: translateY(0); /* Show header when scrolling up */
     }
     
     .header-left { 
@@ -262,9 +271,15 @@
       background: rgba(255, 255, 255, 0.1);
     }
     
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
     @media (max-width: 800px) {
       .nav-toggle { display: block; }
-      #navMenu { 
+      .nav-links { 
         display: none; 
         flex-direction: column; 
         gap: 10px; 
@@ -279,7 +294,7 @@
         min-width: 200px;
       }
       
-      #navMenu.show {
+      .nav-links.show {
         display: flex;
       }
       
@@ -758,7 +773,7 @@
   <div class="loading-bar" id="loadingBar"></div>
 
   <!-- Header -->
-  <header data-aos="fade-down">
+  <header id="mainHeader">
     <div class="header-left">
       <a href="index.html" class="logo-link" aria-label="Code Cortex - Return to home page">
         <img src="code_logo.png" alt="Code Cortex - Software House Pakistan" class="logo-img" width="55" height="55" />
@@ -770,7 +785,7 @@
       <button id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation menu" class="nav-toggle">
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
-      <div id="navMenu" class="nav-links">
+      <div class="nav-links" id="navMenu">
         <a href="#hero">Home</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
@@ -895,31 +910,30 @@
             <input type="email" id="email" name="email" required>
           </div>
           <div class="form-group">
-  <label for="service">Service Interested In</label>
-  <select id="service" name="service" required>
-    <option value="">Select a service</option>
-    <option value="web-development">Web Development</option>
-    <option value="mobile-apps">Mobile App Development</option>
-    <option value="ai-solutions">AI & Machine Learning Solutions</option>
-    <option value="ecommerce">E-Commerce Development</option>
-    <option value="crm">CRM & ERP Solutions</option>
-    <option value="cloud">Cloud Solutions & DevOps</option>
-    <option value="ui-ux">UI/UX Design</option>
-    <option value="digital-marketing">Digital Marketing & SEO</option>
-    <option value="maintenance">Website Maintenance & Support</option>
-    <option value="consultation">IT Consultation</option>
-    <option value="software-testing">Software Testing & QA</option>
-    <option value="api-development">API Development & Integration</option>
-    <option value="database">Database Design & Management</option>
-    <option value="cybersecurity">Cybersecurity Solutions</option>
-    <option value="blockchain">Blockchain Development</option>
-    <option value="iot">IoT Solutions</option>
-    <option value="ar-vr">AR/VR Development</option>
-    <option value="custom-software">Custom Software Development</option>
-    <option value="legacy-modernization">Legacy System Modernization</option>
-    <option value="other">Other (Please specify in message)</option>
-  </select>
-</div>
+            <label for="service">Service Interested In</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option value="web-development">Web Development</option>
+              <option value="mobile-apps">Mobile App Development</option>
+              <option value="ai-solutions">AI & Machine Learning Solutions</option>
+              <option value="ecommerce">E-Commerce Development</option>
+              <option value="crm">CRM & ERP Solutions</option>
+              <option value="cloud">Cloud Solutions & DevOps</option>
+              <option value="ui-ux">UI/UX Design</option>
+              <option value="digital-marketing">Digital Marketing & SEO</option>
+              <option value="maintenance">Website Maintenance & Support</option>
+              <option value="consultation">IT Consultation</option>
+              <option value="software-testing">Software Testing & QA</option>
+              <option value="api-development">API Development & Integration</option>
+              <option value="database">Database Design & Management</option>
+              <option value="cybersecurity">Cybersecurity Solutions</option>
+              <option value="blockchain">Blockchain Development</option>
+              <option value="iot">IoT Solutions</option>
+              <option value="ar-vr">AR/VR Development</option>
+              <option value="custom-software">Custom Software Development</option>
+              <option value="legacy-modernization">Legacy System Modernization</option>
+              <option value="other">Other (Please specify in message)</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="message">Project Details</label>
@@ -987,7 +1001,7 @@
           <div class="contact-method">
             <i class="fas fa-clock"></i>
             <div>
-              <p>Monday - Saturday: 9AM - 6PM</p>
+              <p>Monday - Friday: 9AM - 6PM</p>
             </div>
           </div>
         </div>
@@ -1094,24 +1108,24 @@
         localStorage.setItem('theme', newTheme);
       });
 
-      // Header scroll behavior
-      let prevScroll = window.scrollY;
-      const header = document.querySelector('header');
+      // FIXED: Header scroll behavior - hide on scroll down, show on scroll up
+      let lastScrollY = window.scrollY;
+      const header = document.getElementById('mainHeader');
 
       window.addEventListener('scroll', () => {
-        if (window.innerWidth > 800) {
-          const currentScroll = window.scrollY;
-          
-          if (currentScroll > prevScroll && currentScroll > 100) {
-            header.style.top = '-100px';
-          } else {
-            header.style.top = '0';
-          }
-          
-          prevScroll = currentScroll;
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          // Scrolling down & past 100px - hide header
+          header.classList.add('header-scrolled');
+          header.classList.remove('header-visible');
         } else {
-          header.style.top = '0';
+          // Scrolling up - show header
+          header.classList.remove('header-scrolled');
+          header.classList.add('header-visible');
         }
+        
+        lastScrollY = currentScrollY;
       });
 
       // Contact form submission
@@ -1163,4 +1177,3 @@
   </script>
 </body>
 </html>
-
