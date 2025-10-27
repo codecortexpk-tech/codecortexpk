@@ -77,6 +77,9 @@
       --text-primary: #ffffff;
       --shadow: 0 4px 20px rgba(0,0,0,0.4);
       --maintenance-primary: #00cc88;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #7c3aed;
     }
     
     [data-theme="light"] {
@@ -523,6 +526,179 @@
       transition: width 0.3s ease;
     }
 
+    /* NEW: Updated Contact Section Styles */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .contact-info {
+      text-align: left;
+    }
+    
+    .contact-info h3 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .contact-method {
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .contact-method i {
+      color: var(--cta);
+      margin-right: 15px;
+      font-size: 1.2rem;
+      width: 24px;
+      text-align: center;
+    }
+    
+    .contact-form {
+      background: var(--panel);
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--cta);
+      box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--cta);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .form-submit:hover {
+      background: #ff4b4b;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    }
+    
+    /* Footer with Social Links */
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+    
+    .footer-column h3 {
+      color: var(--accent);
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--cta);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--cta);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
     /* Responsive improvements */
     @media (max-width: 768px) {
       section {
@@ -546,6 +722,20 @@
       #themeToggle {
         bottom: 10px;
         left: 10px;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .contact-form {
+        padding: 1.5rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
     }
 
@@ -598,7 +788,7 @@
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="contact.html">Contact</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
     <button class="login-btn" onclick="window.location.href='login.html'" aria-label="Admin login">
@@ -612,7 +802,7 @@
     <section class="hero" id="hero" data-aos="fade-up">
       <h2 id="animatedText" aria-live="polite">Innovating Ideas.</h2>
       <p>We design & build scalable Websites, Mobile apps, and AI-driven solutions for businesses worldwide.</p>
-      <button class="cta-btn" onclick="window.location.href='contact.html'" aria-label="Get in touch with Code Cortex">
+      <button class="cta-btn" onclick="window.location.href='#contact'" aria-label="Get in touch with Code Cortex">
         Get in Touch
       </button>
     </section>
@@ -700,26 +890,113 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- NEW: Updated Contact Section -->
     <section id="contact" data-aos="fade-up">
       <h2>Get In Touch</h2>
-      <p style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Ready to start your project? Visit our contact page to get in touch with our team.
+      <p style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Ready to start your project? Contact us today for a free consultation and quote.
       </p>
       
-      <button class="cta-btn" onclick="window.location.href='contact.html'" aria-label="Go to contact page">
-        Contact Us
-      </button>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="contact-method">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Address</strong>
+              <p>Attock, Punjab, Pakistan</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-phone"></i>
+            <div>
+              <strong>Phone</strong>
+              <p>+92-315-722-7688</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <p>codecortexpk@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong>Business Hours</strong>
+              <p>Monday - Friday: 9AM - 6PM</p>
+            </div>
+          </div>
+        </div>
+        
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Interested In</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option value="web-development">Web Development</option>
+              <option value="mobile-apps">Mobile Apps</option>
+              <option value="ai-solutions">AI Solutions</option>
+              <option value="maintenance">Maintenance & Support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer data-aos="fade-up">
-    <div class="footer-content">
-      <p>&copy; 2024 Code Cortex (Pvt.) Ltd. | All Rights Reserved</p>
-      <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">
-        Transforming ideas into digital reality
-      </p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Code Cortex</h3>
+          <p>Building innovative digital solutions that drive business growth and transform user experiences.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/codecortex" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/codecortex" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/codecortex" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/codecortexpk-tech" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="web-development.html">Web Development</a></li>
+            <li><a href="mobile-apps.html">Mobile Apps</a></li>
+            <li><a href="ai-solutions.html">AI Solutions</a></li>
+            <li><a href="maintenance.html">Maintenance & Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Code Cortex (SMC-Pvt.) Ltd. | All Rights Reserved</p>
+      </div>
     </div>
   </footer>
 
@@ -848,6 +1125,25 @@
         }
       });
 
+      // Contact form submission
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Get form data
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData);
+          
+          // In a real implementation, you would send this data to your server
+          console.log('Form submitted:', data);
+          
+          // Show success message
+          alert('Thank you for your message! We will get back to you soon.');
+          this.reset();
+        });
+      }
+
       // Performance: Lazy load non-critical resources
       const loadResources = () => {
         const styles = [
@@ -878,4 +1174,3 @@
   </script>
 </body>
 </html>
-
