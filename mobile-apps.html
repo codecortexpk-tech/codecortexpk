@@ -506,13 +506,140 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
-    /* Footer */
-    footer {
-      background: #2b2e3d;
-      color: #aaa;
+    /* Footer Styles */
+    footer { 
+      background-color: #2b2e3d; 
+      padding: 3rem 2rem; 
+      text-align: center; 
+      color: #aaa; 
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+    
+    .footer-column h3 {
+      color: var(--accent);
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--cta);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .contact-method {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .contact-method i {
+      color: var(--cta);
+      margin-right: 15px;
+      font-size: 1.2rem;
+      width: 24px;
       text-align: center;
-      padding: 3rem 2rem;
-      margin-top: 3rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--cta);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Floating Buttons - Only WhatsApp */
+    .float-btn { 
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 10px; 
+      z-index: 200; 
+    }
+    
+    .float-btn a { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      width: 50px; 
+      height: 50px; 
+      border-radius: 50%; 
+      color: #fff; 
+      font-size: 1.2rem; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4); 
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .whatsapp { background: #25D366; }
+    
+    .float-btn a:hover,
+    .float-btn a:focus { 
+      transform: scale(1.1) translateY(-3px);
+      opacity: 0.9; 
+    }
+    
+    .float-btn .top { 
+      background: var(--cta); 
     }
 
     /* Responsive */
@@ -552,6 +679,16 @@
       .phone {
         width: 180px;
         height: 370px;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .float-btn {
+        bottom: 10px;
+        right: 10px;
       }
     }
 
@@ -735,12 +872,81 @@
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Code Cortex (Pvt) Ltd. | Professional Mobile App Development</p>
-    <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">
-      Building mobile experiences that users love
-    </p>
+  <footer data-aos="fade-up">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Code Cortex</h3>
+          <p>Building innovative digital solutions that drive business growth and transform user experiences.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/codecortex" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/codecortex" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/codecortex" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/codecortexpk-tech" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="web-development.html">Web Development</a></li>
+            <li><a href="mobile-apps.html">Mobile Apps</a></li>
+            <li><a href="ai-solutions.html">AI Solutions</a></li>
+            <li><a href="maintenance.html">Maintenance & Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Information</h3>
+          <div class="contact-method">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <p>Attock, Punjab, Pakistan</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-phone"></i>
+            <div>
+              <p>+92-315-722-7688</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <p>codecortexpk@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-clock"></i>
+            <div>
+              <p>Monday - Saturday: 9AM - 6PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Code Cortex (Pvt.) Ltd. | All Rights Reserved</p>
+      </div>
+    </div>
   </footer>
+
+  <!-- Floating Buttons - Only WhatsApp -->
+  <div class="float-btn">
+    <a href="https://wa.me/923157227688" target="_blank" rel="noopener noreferrer" class="whatsapp" aria-label="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a href="#hero" class="top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </a>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
