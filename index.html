@@ -80,6 +80,8 @@
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
       --secondary: #7c3aed;
+      --success: #10b981;
+      --error: #ef4444;
     }
     
     [data-theme="light"] {
@@ -91,6 +93,8 @@
       --text-primary: #000000;
       --shadow: 0 4px 20px rgba(0,0,0,0.1);
       --maintenance-primary: #00a86b;
+      --success: #10b981;
+      --error: #ef4444;
     }
 
     * { 
@@ -447,12 +451,25 @@
       box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
     }
 
-    /* Footer */
+    /* Footer - FIXED LIGHT THEME ISSUE */
     footer { 
       background-color: #2b2e3d; 
       padding: 3rem 2rem; 
       text-align: center; 
       color: #aaa; 
+    }
+    
+    [data-theme="light"] footer {
+      background-color: #f0f0f0;
+      color: #666;
+    }
+    
+    [data-theme="light"] .footer-links a {
+      color: #666;
+    }
+    
+    [data-theme="light"] .footer-links a:hover {
+      color: var(--accent);
     }
     
     .footer-content {
@@ -595,6 +612,10 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
     
     .form-submit:hover {
@@ -602,7 +623,41 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
     }
-    
+
+    /* Form Message Styles */
+    #formMessage {
+      margin-top: 1rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.75rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .success {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    .error {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+
+    .info {
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .error-message {
+      color: var(--error);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
     /* Footer with Social Links */
     .footer-content {
       display: grid;
@@ -884,7 +939,7 @@
       </div>
     </section>
 
-    <!-- NEW: Updated Contact Section -->
+    <!-- NEW: Updated Contact Section with Email Forwarding -->
     <section id="contact" data-aos="fade-up">
       <h2>Get In Touch</h2>
       <p style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
@@ -892,17 +947,33 @@
       </p>
       
       <div class="contact-grid">
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvgbjgdw" method="POST">
+          <!-- Hidden fields for Formspree configuration -->
+          <input type="hidden" name="_subject" value="New Project Inquiry - Code Cortex">
+          <input type="hidden" name="_replyto" id="replyTo">
+          <input type="hidden" name="_cc" value="codecortexpk@gmail.com">
+          
+          <!-- Honeypot field to prevent spam -->
+          <input type="text" name="_gotcha" style="display:none">
+          <input type="text" name="_honeypot" style="display:none" aria-hidden="true">
+
           <div class="form-group">
-            <label for="name">Full Name</label>
+            <label for="name">Full Name *</label>
             <input type="text" id="name" name="name" required>
+            <div class="error-message" id="nameError"></div>
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
+            <label for="email">Email Address *</label>
             <input type="email" id="email" name="email" required>
+            <div class="error-message" id="emailError"></div>
           </div>
           <div class="form-group">
-            <label for="service">Service Interested In</label>
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+92 XXX XXXXXXX" required>
+            <div class="error-message" id="phoneError"></div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Interested In *</label>
             <select id="service" name="service" required>
               <option value="">Select a service</option>
               <option value="web-development">Web Development</option>
@@ -926,13 +997,20 @@
               <option value="legacy-modernization">Legacy System Modernization</option>
               <option value="other">Other (Please specify in message)</option>
             </select>
+            <div class="error-message" id="serviceError"></div>
           </div>
           <div class="form-group">
-            <label for="message">Project Details</label>
+            <label for="message">Project Details *</label>
             <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+            <div class="error-message" id="messageError"></div>
           </div>
-          <button type="submit" class="form-submit">Send Message</button>
+          <button type="submit" class="form-submit" id="submitBtn">
+            <i class="fas fa-paper-plane"></i>
+            Send Message
+          </button>
         </form>
+        
+        <div id="formMessage" aria-live="polite"></div>
       </div>
     </section>
   </main>
@@ -1118,30 +1196,118 @@
         lastScrollY = currentScrollY;
       });
 
-      // Contact form submission
+      // ENHANCED: Contact form submission with Formspree
       const contactForm = document.getElementById('contactForm');
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          // Get form data
-          const formData = new FormData(this);
-          const data = Object.fromEntries(formData);
-          
-          // Simple validation
-          if (!data.name || !data.email || !data.service || !data.message) {
-            alert('Please fill in all required fields');
-            return;
-          }
-          
-          // In a real implementation, you would send this data to your server
-          console.log('Form submitted:', data);
-          
-          // Show success message
-          alert('Thank you for your message! We will get back to you soon.');
-          this.reset();
-        });
+      const formMessage = document.getElementById('formMessage');
+      const submitBtn = document.getElementById('submitBtn');
+      
+      // Set reply-to field to match email field
+      const emailField = document.getElementById('email');
+      const replyToField = document.getElementById('replyTo');
+      
+      emailField.addEventListener('input', function() {
+        replyToField.value = emailField.value;
+      });
+      
+      // Form validation
+      function validateForm() {
+        let isValid = true;
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const service = document.getElementById('service');
+        const message = document.getElementById('message');
+        
+        // Reset error states
+        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+        document.querySelectorAll('input, textarea, select').forEach(el => el.classList.remove('error'));
+        
+        // Name validation
+        if (!name.value.trim()) {
+          document.getElementById('nameError').textContent = 'Name is required';
+          name.classList.add('error');
+          isValid = false;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim()) {
+          document.getElementById('emailError').textContent = 'Email is required';
+          email.classList.add('error');
+          isValid = false;
+        } else if (!emailRegex.test(email.value)) {
+          document.getElementById('emailError').textContent = 'Please enter a valid email address';
+          email.classList.add('error');
+          isValid = false;
+        }
+        
+        // Phone validation
+        if (!phone.value.trim()) {
+          document.getElementById('phoneError').textContent = 'Phone number is required';
+          phone.classList.add('error');
+          isValid = false;
+        }
+        
+        // Service validation
+        if (!service.value) {
+          document.getElementById('serviceError').textContent = 'Please select a service';
+          service.classList.add('error');
+          isValid = false;
+        }
+        
+        // Message validation
+        if (!message.value.trim()) {
+          document.getElementById('messageError').textContent = 'Message is required';
+          message.classList.add('error');
+          isValid = false;
+        } else if (message.value.trim().length < 10) {
+          document.getElementById('messageError').textContent = 'Message should be at least 10 characters';
+          message.classList.add('error');
+          isValid = false;
+        }
+        
+        return isValid;
       }
+      
+      // Form submission
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+          formMessage.textContent = "Please fix the errors above";
+          formMessage.className = "error";
+          return;
+        }
+        
+        submitBtn.disabled = true;
+        formMessage.textContent = "Sending...";
+        formMessage.className = "info";
+        
+        try {
+          const response = await fetch(contactForm.action, {
+            method: contactForm.method,
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            formMessage.textContent = "✅ Thank you! Your message has been sent successfully. We'll get back to you soon.";
+            formMessage.className = "success";
+            contactForm.reset();
+          } else {
+            const errorData = await response.json();
+            formMessage.textContent = "⚠️ Something went wrong. Please try again or contact us directly.";
+            formMessage.className = "error";
+            console.error('Formspree error:', errorData);
+          }
+        } catch (error) {
+          formMessage.textContent = "🚫 Network error. Please check your connection and try again.";
+          formMessage.className = "error";
+          console.error('Submission error:', error);
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
 
       // Performance: Lazy load non-critical resources
       const loadResources = () => {
