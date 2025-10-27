@@ -145,16 +145,8 @@
       z-index: 1000; 
       box-shadow: var(--shadow); 
       flex-wrap: wrap;
-      transition: transform 0.3s ease; /* Changed from all to transform only */
-      transform: translateY(0); /* Ensure header starts visible */
-    }
-    
-    .header-scrolled {
-      transform: translateY(-100%); /* Hide header when scrolling down */
-    }
-    
-    .header-visible {
-      transform: translateY(0); /* Show header when scrolling up */
+      transition: transform 0.3s ease;
+      transform: translateY(0);
     }
     
     .header-left { 
@@ -1116,13 +1108,11 @@
         const currentScrollY = window.scrollY;
         
         if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          // Scrolling down & past 100px - hide header
-          header.classList.add('header-scrolled');
-          header.classList.remove('header-visible');
+          // Scrolling down - hide header
+          header.style.transform = 'translateY(-100%)';
         } else {
           // Scrolling up - show header
-          header.classList.remove('header-scrolled');
-          header.classList.add('header-visible');
+          header.style.transform = 'translateY(0)';
         }
         
         lastScrollY = currentScrollY;
@@ -1137,6 +1127,12 @@
           // Get form data
           const formData = new FormData(this);
           const data = Object.fromEntries(formData);
+          
+          // Simple validation
+          if (!data.name || !data.email || !data.service || !data.message) {
+            alert('Please fill in all required fields');
+            return;
+          }
           
           // In a real implementation, you would send this data to your server
           console.log('Form submitted:', data);
@@ -1177,4 +1173,3 @@
   </script>
 </body>
 </html>
-
