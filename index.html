@@ -453,7 +453,7 @@
       margin: 0 auto;
     }
 
-    /* Floating Buttons */
+    /* Floating Buttons - Only WhatsApp */
     .float-btn { 
       position: fixed; 
       bottom: 20px; 
@@ -479,9 +479,6 @@
     }
     
     .whatsapp { background: #25D366; }
-    .linkedin { background: #0077b5; }
-    .twitter { background: #1DA1F2; }
-    .facebook { background: #1877f2; }
     
     .float-btn a:hover,
     .float-btn a:focus { 
@@ -529,34 +526,10 @@
     /* NEW: Updated Contact Section Styles */
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: 1fr;
       gap: 3rem;
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
-    }
-    
-    .contact-info {
-      text-align: left;
-    }
-    
-    .contact-info h3 {
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      font-size: 1.5rem;
-    }
-    
-    .contact-method {
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: flex-start;
-    }
-    
-    .contact-method i {
-      color: var(--cta);
-      margin-right: 15px;
-      font-size: 1.2rem;
-      width: 24px;
-      text-align: center;
     }
     
     .contact-form {
@@ -665,6 +638,20 @@
     
     .footer-links a:hover {
       color: var(--accent);
+    }
+    
+    .contact-method {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .contact-method i {
+      color: var(--cta);
+      margin-right: 15px;
+      font-size: 1.2rem;
+      width: 24px;
+      text-align: center;
     }
     
     .social-links {
@@ -898,38 +885,6 @@
       </p>
       
       <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Contact Information</h3>
-          <div class="contact-method">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <strong>Address</strong>
-              <p>Attock, Punjab, Pakistan</p>
-            </div>
-          </div>
-          <div class="contact-method">
-            <i class="fas fa-phone"></i>
-            <div>
-              <strong>Phone</strong>
-              <p>+92-315-722-7688</p>
-            </div>
-          </div>
-          <div class="contact-method">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <strong>Email</strong>
-              <p>codecortexpk@gmail.com</p>
-            </div>
-          </div>
-          <div class="contact-method">
-            <i class="fas fa-clock"></i>
-            <div>
-              <strong>Business Hours</strong>
-              <p>Monday - Friday: 9AM - 6PM</p>
-            </div>
-          </div>
-        </div>
-        
         <form class="contact-form" id="contactForm">
           <div class="form-group">
             <label for="name">Full Name</label>
@@ -941,12 +896,13 @@
           </div>
           <div class="form-group">
             <label for="service">Service Interested In</label>
-            <select id="service" name="service">
+            <select id="service" name="service" required>
               <option value="">Select a service</option>
               <option value="web-development">Web Development</option>
-              <option value="mobile-apps">Mobile Apps</option>
+              <option value="mobile-apps">Mobile App Development</option>
               <option value="ai-solutions">AI Solutions</option>
               <option value="maintenance">Maintenance & Support</option>
+              <option value="consultation">IT Consultation</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -993,6 +949,33 @@
             <li><a href="maintenance.html">Maintenance & Support</a></li>
           </ul>
         </div>
+        <div class="footer-column">
+          <h3>Contact Information</h3>
+          <div class="contact-method">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <p>Attock, Punjab, Pakistan</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-phone"></i>
+            <div>
+              <p>+92-315-722-7688</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <p>codecortexpk@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <i class="fas fa-clock"></i>
+            <div>
+              <p>Monday - Friday: 9AM - 6PM</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2024 Code Cortex (SMC-Pvt.) Ltd. | All Rights Reserved</p>
@@ -1000,19 +983,10 @@
     </div>
   </footer>
 
-  <!-- Floating Buttons -->
+  <!-- Floating Buttons - Only WhatsApp -->
   <div class="float-btn">
     <a href="https://wa.me/923157227688" target="_blank" rel="noopener noreferrer" class="whatsapp" aria-label="Contact us on WhatsApp">
       <i class="fab fa-whatsapp" aria-hidden="true"></i>
-    </a>
-    <a href="https://www.linkedin.com/company/codecortex" target="_blank" rel="noopener noreferrer" class="linkedin" aria-label="Follow us on LinkedIn">
-      <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-    </a>
-    <a href="https://twitter.com/codecortex" target="_blank" rel="noopener noreferrer" class="twitter" aria-label="Follow us on Twitter">
-      <i class="fab fa-twitter" aria-hidden="true"></i>
-    </a>
-    <a href="https://facebook.com/codecortex" target="_blank" rel="noopener noreferrer" class="facebook" aria-label="Like us on Facebook">
-      <i class="fab fa-facebook-f" aria-hidden="true"></i>
     </a>
     <a href="#hero" class="top" aria-label="Scroll to top">
       <i class="fas fa-arrow-up" aria-hidden="true"></i>
