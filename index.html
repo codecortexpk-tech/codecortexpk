@@ -588,6 +588,25 @@
       transition: all 0.3s ease;
     }
     
+    /* FIXED: Dropdown color issue */
+    .form-group select {
+      color: var(--text-primary);
+      background-color: var(--panel);
+    }
+    
+    .form-group select option {
+      color: var(--text-primary);
+      background-color: var(--panel);
+      padding: 10px;
+    }
+    
+    /* Light theme specific styles for dropdown */
+    [data-theme="light"] .form-group select,
+    [data-theme="light"] .form-group select option {
+      color: #1a1a1a;
+      background-color: #ffffff;
+    }
+    
     .form-group input:focus,
     .form-group textarea:focus,
     .form-group select:focus {
@@ -1332,5 +1351,3 @@
   </script>
 </body>
 </html>
-
-
