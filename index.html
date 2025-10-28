@@ -958,7 +958,7 @@
       </div>
     </section>
 
-    <!-- NEW: Updated Contact Section with Email Forwarding -->
+    <!-- UPDATED: Contact Section with Working Form -->
     <section id="contact" data-aos="fade-up">
       <h2>Get In Touch</h2>
       <p style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
@@ -966,7 +966,7 @@
       </p>
       
       <div class="contact-grid">
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvgbjgdw" method="POST">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvgbjgdw" method="POST" enctype="multipart/form-data">
           <!-- Hidden fields for Formspree configuration -->
           <input type="hidden" name="_subject" value="New Project Inquiry - Code Cortex">
           <input type="hidden" name="_replyto" id="replyTo">
@@ -974,7 +974,6 @@
           
           <!-- Honeypot field to prevent spam -->
           <input type="text" name="_gotcha" style="display:none">
-          <input type="text" name="_honeypot" style="display:none" aria-hidden="true">
 
           <div class="form-group">
             <label for="name">Full Name *</label>
@@ -1208,7 +1207,7 @@
         lastScrollY = currentScrollY;
       });
 
-      // ENHANCED: Contact form submission with Formspree
+      // UPDATED: Contact form submission with Formspree (using your working configuration)
       const contactForm = document.getElementById('contactForm');
       const formMessage = document.getElementById('formMessage');
       const submitBtn = document.getElementById('submitBtn');
