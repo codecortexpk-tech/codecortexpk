@@ -547,7 +547,7 @@
       transition: width 0.3s ease;
     }
 
-    /* NEW: Updated Contact Section Styles */
+    /* Contact Section Styles */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -556,125 +556,90 @@
       margin: 0 auto;
     }
     
-    .contact-form {
+    .contact-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .contact-card {
       background: var(--panel);
       padding: 2.5rem;
       border-radius: 15px;
       box-shadow: var(--shadow);
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
-    
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-primary);
-      font-size: 1rem;
       transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    /* FIXED: Dropdown color issue */
-    .form-group select {
-      color: var(--text-primary);
-      background-color: var(--panel);
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
     
-    .form-group select option {
-      color: var(--text-primary);
-      background-color: var(--panel);
-      padding: 10px;
+    .contact-icon {
+      font-size: 3rem;
+      color: var(--cta);
+      margin-bottom: 1.5rem;
     }
     
-    /* Light theme specific styles for dropdown */
-    [data-theme="light"] .form-group select,
-    [data-theme="light"] .form-group select option {
-      color: #1a1a1a;
-      background-color: #ffffff;
-    }
-    
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--cta);
-      box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
-    }
-    
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    
-    .form-submit {
-      width: 100%;
-      padding: 15px;
+    .contact-btn {
       background: var(--cta);
       color: white;
+      padding: 15px 30px;
       border: none;
-      border-radius: 8px;
+      border-radius: 30px;
       font-size: 1.1rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
     }
     
-    .form-submit:hover {
+    .contact-btn:hover {
       background: #ff4b4b;
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
     }
-
-    /* Form Message Styles */
-    #formMessage {
-      margin-top: 1rem;
-      font-weight: bold;
-      text-align: center;
-      padding: 0.75rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+    
+    .contact-btn.whatsapp-btn {
+      background: #25D366;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     }
-
-    .success {
-      background-color: rgba(16, 185, 129, 0.1);
+    
+    .contact-btn.whatsapp-btn:hover {
+      background: #1da851;
+    }
+    
+    .benefits-box {
+      background: var(--panel);
+      padding: 2rem;
+      border-radius: 15px;
+      margin-top: 3rem;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .benefits-list {
+      list-style: none;
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .benefits-list li {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+    
+    .benefits-list li:before {
+      content: '✅';
+      position: absolute;
+      left: 0;
       color: var(--success);
-      border: 1px solid var(--success);
-    }
-
-    .error {
-      background-color: rgba(239, 68, 68, 0.1);
-      color: var(--error);
-      border: 1px solid var(--error);
-    }
-
-    .info {
-      background-color: rgba(37, 99, 235, 0.1);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-
-    .error-message {
-      color: var(--error);
-      font-size: 0.875rem;
-      margin-top: 0.25rem;
     }
 
     /* Footer with Social Links */
@@ -797,8 +762,8 @@
         gap: 2rem;
       }
       
-      .contact-form {
-        padding: 1.5rem;
+      .contact-options {
+        grid-template-columns: 1fr;
       }
       
       .footer-content {
@@ -958,70 +923,94 @@
       </div>
     </section>
 
-    <!-- UPDATED: Contact Section with Formspree -->
+    <!-- SOLUTION 3: Direct Contact Section -->
     <section id="contact" data-aos="fade-up">
       <h2>Get In Touch</h2>
       <p style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Ready to start your project? Contact us today for a free consultation and quote.
+        Ready to start your project? Contact us directly for fastest response and guaranteed communication.
       </p>
       
       <div class="contact-grid">
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xblpgayb" method="POST" enctype="multipart/form-data">
-          <!-- Hidden fields for Formspree configuration -->
-          <input type="hidden" name="_subject" value="New Project Inquiry - Code Cortex">
-          <input type="hidden" name="_replyto" id="replyTo">
-          <input type="hidden" name="_cc" value="codecortexpk@gmail.com">
-          
-          <!-- Honeypot field to prevent spam -->
-          <input type="text" name="_gotcha" style="display:none">
+        <!-- Contact Options -->
+        <div class="contact-options">
+          <!-- Email Option -->
+          <div class="contact-card">
+            <i class="fas fa-envelope contact-icon"></i>
+            <h3>Email Us</h3>
+            <p>Send us detailed project requirements and get a personalized quote within 24 hours.</p>
+            <a href="mailto:codecortexpk@gmail.com?subject=Project Inquiry - Code Cortex&body=Hello Code Cortex Team,%0D%0A%0D%0AI'm interested in your services. Here are my project details:%0D%0A%0D%0A- Project Type:%0D%0A- Budget Range:%0D%0A- Timeline:%0D%0A- Description:%0D%0A%0D%0APlease contact me to discuss further.%0D%0A%0D%0ABest regards," 
+               class="contact-btn">
+              <i class="fas fa-paper-plane"></i> Send Email
+            </a>
+          </div>
 
-          <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required>
-            <div class="error-message" id="nameError"></div>
+          <!-- WhatsApp Option -->
+          <div class="contact-card">
+            <i class="fab fa-whatsapp contact-icon"></i>
+            <h3>WhatsApp</h3>
+            <p>Chat with us directly for quick questions, quotes, and instant responses.</p>
+            <a href="https://wa.me/923157227688?text=Hello%20Code%20Cortex!%20I'm%20interested%20in%20your%20services.%20Please%20share%20more%20information." 
+               target="_blank" class="contact-btn whatsapp-btn">
+              <i class="fab fa-whatsapp"></i> Message on WhatsApp
+            </a>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required>
-            <div class="error-message" id="emailError"></div>
+
+          <!-- Phone Option -->
+          <div class="contact-card">
+            <i class="fas fa-phone contact-icon"></i>
+            <h3>Call Us</h3>
+            <p>Speak directly with our team for detailed discussions and immediate assistance.</p>
+            <a href="tel:+923157227688" class="contact-btn">
+              <i class="fas fa-phone"></i> Call Now
+            </a>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" placeholder="+92 XXX XXXXXXX" required>
-            <div class="error-message" id="phoneError"></div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="benefits-box">
+          <h3 style="color: var(--accent); margin-bottom: 1.5rem;">Why Contact Directly?</h3>
+          <ul class="benefits-list">
+            <li><strong>Instant Response:</strong> No waiting for form processing</li>
+            <li><strong>Guaranteed Delivery:</strong> 100% message delivery rate</li>
+            <li><strong>Personalized Service:</strong> Direct communication with our team</li>
+            <li><strong>Faster Quotes:</strong> Get pricing within hours, not days</li>
+            <li><strong>Better Understanding:</strong> Discuss complex requirements directly</li>
+            <li><strong>No Technical Issues:</strong> Bypass form submission problems</li>
+          </ul>
+        </div>
+
+        <!-- Quick Contact Info -->
+        <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: var(--panel); border-radius: 15px;">
+          <h3 style="color: var(--accent); margin-bottom: 1rem;">Quick Contact Information</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+            <div>
+              <i class="fas fa-envelope" style="color: var(--cta); margin-right: 10px;"></i>
+              <strong>Email:</strong><br>
+              <a href="mailto:codecortexpk@gmail.com" style="color: var(--muted); text-decoration: none;">
+                codecortexpk@gmail.com
+              </a>
+            </div>
+            <div>
+              <i class="fas fa-phone" style="color: var(--cta); margin-right: 10px;"></i>
+              <strong>Phone:</strong><br>
+              <a href="tel:+923157227688" style="color: var(--muted); text-decoration: none;">
+                +92-315-722-7688
+              </a>
+            </div>
+            <div>
+              <i class="fab fa-whatsapp" style="color: #25D366; margin-right: 10px;"></i>
+              <strong>WhatsApp:</strong><br>
+              <a href="https://wa.me/923157227688" style="color: var(--muted); text-decoration: none;">
+                +92-315-722-7688
+              </a>
+            </div>
+            <div>
+              <i class="fas fa-clock" style="color: var(--cta); margin-right: 10px;"></i>
+              <strong>Hours:</strong><br>
+              Mon-Sat: 9AM - 6PM
+            </div>
           </div>
-          <div class="form-group">
-            <label for="service">Service Interested In *</label>
-            <select id="service" name="service" required>
-              <option value="">Select a service</option>
-              <option value="web-development">Web Development</option>
-              <option value="mobile-apps">Mobile App Development</option>
-              <option value="ai-solutions">AI & Machine Learning Solutions</option>
-              <option value="ecommerce">E-Commerce Development</option>
-              <option value="crm">CRM & ERP Solutions</option>
-              <option value="cloud">Cloud Solutions & DevOps</option>
-              <option value="ui-ux">UI/UX Design</option>
-              <option value="digital-marketing">Digital Marketing & SEO</option>
-              <option value="maintenance">Website Maintenance & Support</option>
-              <option value="consultation">IT Consultation</option>
-              <option value="software-testing">Software Testing & QA</option>
-              <option value="custom-software">Custom Software Development</option>
-              <option value="other">Other (Please specify in message)</option>
-            </select>
-            <div class="error-message" id="serviceError"></div>
-          </div>
-          <div class="form-group">
-            <label for="message">Project Details *</label>
-            <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
-            <div class="error-message" id="messageError"></div>
-          </div>
-          <button type="submit" class="form-submit" id="submitBtn">
-            <i class="fas fa-paper-plane"></i>
-            Send Message
-          </button>
-        </form>
-        
-        <div id="formMessage" aria-live="polite"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -1205,118 +1194,6 @@
         }
         
         lastScrollY = currentScrollY;
-      });
-
-      // Form validation
-      function validateForm() {
-        let isValid = true;
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const phone = document.getElementById('phone');
-        const service = document.getElementById('service');
-        const message = document.getElementById('message');
-        
-        // Reset error states
-        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-        document.querySelectorAll('input, textarea, select').forEach(el => el.classList.remove('error'));
-        
-        // Name validation
-        if (!name.value.trim()) {
-          document.getElementById('nameError').textContent = 'Name is required';
-          name.classList.add('error');
-          isValid = false;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email.value.trim()) {
-          document.getElementById('emailError').textContent = 'Email is required';
-          email.classList.add('error');
-          isValid = false;
-        } else if (!emailRegex.test(email.value)) {
-          document.getElementById('emailError').textContent = 'Please enter a valid email address';
-          email.classList.add('error');
-          isValid = false;
-        }
-        
-        // Phone validation
-        if (!phone.value.trim()) {
-          document.getElementById('phoneError').textContent = 'Phone number is required';
-          phone.classList.add('error');
-          isValid = false;
-        }
-        
-        // Service validation
-        if (!service.value) {
-          document.getElementById('serviceError').textContent = 'Please select a service';
-          service.classList.add('error');
-          isValid = false;
-        }
-        
-        // Message validation
-        if (!message.value.trim()) {
-          document.getElementById('messageError').textContent = 'Message is required';
-          message.classList.add('error');
-          isValid = false;
-        } else if (message.value.trim().length < 10) {
-          document.getElementById('messageError').textContent = 'Message should be at least 10 characters';
-          message.classList.add('error');
-          isValid = false;
-        }
-        
-        return isValid;
-      }
-      
-      // Form submission with Formspree
-      const contactForm = document.getElementById('contactForm');
-      const formMessage = document.getElementById('formMessage');
-      const submitBtn = document.getElementById('submitBtn');
-      
-      // Set reply-to field to match email field
-      const emailField = document.getElementById('email');
-      const replyToField = document.getElementById('replyTo');
-      
-      emailField.addEventListener('input', function() {
-        replyToField.value = emailField.value;
-      });
-      
-      contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        if (!validateForm()) {
-          formMessage.textContent = "Please fix the errors above";
-          formMessage.className = "error";
-          return;
-        }
-        
-        submitBtn.disabled = true;
-        formMessage.textContent = "Sending...";
-        formMessage.className = "info";
-        
-        try {
-          const response = await fetch(contactForm.action, {
-            method: contactForm.method,
-            body: new FormData(contactForm),
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (response.ok) {
-            formMessage.textContent = "✅ Thank you! Your message has been sent successfully. We'll get back to you soon.";
-            formMessage.className = "success";
-            contactForm.reset();
-          } else {
-            const errorData = await response.json();
-            formMessage.textContent = "⚠️ Something went wrong. Please try again or contact us directly.";
-            formMessage.className = "error";
-            console.error('Formspree error:', errorData);
-          }
-        } catch (error) {
-          formMessage.textContent = "🚫 Network error. Please check your connection and try again.";
-          formMessage.className = "error";
-          console.error('Submission error:', error);
-        } finally {
-          submitBtn.disabled = false;
-        }
       });
 
       // Performance: Lazy load non-critical resources
