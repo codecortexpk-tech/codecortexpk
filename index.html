@@ -958,7 +958,7 @@
       </div>
     </section>
 
-    <!-- WORKING: Contact Section with EmailJS Integration -->
+    <!-- UPDATED: Contact Section with Formspree -->
     <section id="contact" data-aos="fade-up">
       <h2>Get In Touch</h2>
       <p style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
@@ -966,7 +966,15 @@
       </p>
       
       <div class="contact-grid">
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xblpgayb" method="POST" enctype="multipart/form-data">
+          <!-- Hidden fields for Formspree configuration -->
+          <input type="hidden" name="_subject" value="New Project Inquiry - Code Cortex">
+          <input type="hidden" name="_replyto" id="replyTo">
+          <input type="hidden" name="_cc" value="codecortexpk@gmail.com">
+          
+          <!-- Honeypot field to prevent spam -->
+          <input type="text" name="_gotcha" style="display:none">
+
           <div class="form-group">
             <label for="name">Full Name *</label>
             <input type="text" id="name" name="name" required>
@@ -1102,14 +1110,7 @@
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
-    // Initialize EmailJS with your credentials
-    (function() {
-      emailjs.init("eqXcEFh61wK6ojyuk"); // Your Public Key
-    })();
-
     // Initialize AOS with performance optimizations
     document.addEventListener('DOMContentLoaded', function() {
       AOS.init({
@@ -1206,11 +1207,6 @@
         lastScrollY = currentScrollY;
       });
 
-      // WORKING: Contact form submission with EmailJS
-      const contactForm = document.getElementById('contactForm');
-      const formMessage = document.getElementById('formMessage');
-      const submitBtn = document.getElementById('submitBtn');
-      
       // Form validation
       function validateForm() {
         let isValid = true;
@@ -1271,7 +1267,19 @@
         return isValid;
       }
       
-      // Form submission with EmailJS
+      // Form submission with Formspree
+      const contactForm = document.getElementById('contactForm');
+      const formMessage = document.getElementById('formMessage');
+      const submitBtn = document.getElementById('submitBtn');
+      
+      // Set reply-to field to match email field
+      const emailField = document.getElementById('email');
+      const replyToField = document.getElementById('replyTo');
+      
+      emailField.addEventListener('input', function() {
+        replyToField.value = emailField.value;
+      });
+      
       contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
@@ -1286,34 +1294,26 @@
         formMessage.className = "info";
         
         try {
-          // Prepare template parameters
-          const templateParams = {
-            from_name: document.getElementById('name').value,
-            from_email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            service: document.getElementById('service').value,
-            message: document.getElementById('message').value,
-            to_email: "codecortexpk@gmail.com"
-          };
+          const response = await fetch(contactForm.action, {
+            method: contactForm.method,
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+          });
 
-          // Send email using EmailJS
-          const response = await emailjs.send(
-            'service_kwh50fk', // Your Service ID
-            'template_td8202f', // Your Template ID
-            templateParams
-          );
-
-          if (response.status === 200) {
+          if (response.ok) {
             formMessage.textContent = "✅ Thank you! Your message has been sent successfully. We'll get back to you soon.";
             formMessage.className = "success";
             contactForm.reset();
           } else {
-            throw new Error('Failed to send email');
+            const errorData = await response.json();
+            formMessage.textContent = "⚠️ Something went wrong. Please try again or contact us directly.";
+            formMessage.className = "error";
+            console.error('Formspree error:', errorData);
           }
         } catch (error) {
-          console.error('EmailJS error:', error);
-          formMessage.textContent = "⚠️ Something went wrong. Please try again or contact us directly at codecortexpk@gmail.com";
+          formMessage.textContent = "🚫 Network error. Please check your connection and try again.";
           formMessage.className = "error";
+          console.error('Submission error:', error);
         } finally {
           submitBtn.disabled = false;
         }
