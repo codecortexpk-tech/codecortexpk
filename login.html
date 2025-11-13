@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <title>Login - Code Cortex</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="Admin login for Code Cortex - Software House in Pakistan. Access your dashboard and manage projects.">
+  <meta name="keywords" content="admin login, code cortex, software house Pakistan, dashboard">
+  <meta name="author" content="Code Cortex (SMC-Pvt.) Ltd.">
+  
   <style>
     :root {
       --bg: #1c1e26;
@@ -34,6 +40,32 @@
       padding: 20px;
     }
 
+    /* Home Button */
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: var(--accent);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .home-btn:hover {
+      background: #ffdd55;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
     .login-container {
       display: flex;
       max-width: 1000px;
@@ -43,6 +75,7 @@
       box-shadow: var(--shadow);
       overflow: hidden;
       min-height: 600px;
+      position: relative;
     }
 
     .login-left {
@@ -183,6 +216,28 @@
       box-shadow: 0 5px 15px rgba(255, 226, 125, 0.4);
     }
 
+    .login-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 25px;
+      color: var(--muted);
+    }
+
+    .signup-link a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
     .error-message {
       color: var(--error);
       text-align: center;
@@ -203,24 +258,136 @@
       display: none;
     }
 
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #000;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .backend-options {
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    .backend-options h3 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .backend-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .backend-btn {
+      padding: 8px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .backend-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: var(--accent);
+    }
+
+    .demo-credentials {
+      background: rgba(255, 226, 125, 0.1);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .demo-credentials h4 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .demo-credentials p {
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+
     @media (max-width: 768px) {
       .login-container {
         flex-direction: column;
         min-height: auto;
+        margin-top: 60px;
       }
       
       .login-left, .login-right {
         padding: 30px;
+      }
+      
+      .login-left {
+        min-height: 200px;
+      }
+      
+      .home-btn {
+        top: 10px;
+        left: 10px;
+        padding: 8px 15px;
+        font-size: 0.8rem;
+      }
+      
+      .backend-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .backend-btn {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .login-left, .login-right {
+        padding: 20px;
+      }
+      
+      .login-left h2 {
+        font-size: 2rem;
+      }
+      
+      .login-form h2 {
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Home Button -->
+  <a href="index.html" class="home-btn" aria-label="Return to main website">
+    <i class="fas fa-home"></i>
+    Back to Home
+  </a>
+
   <div class="login-container">
     <div class="login-left">
       <h2>Welcome Back!</h2>
-      <p>Sign in to access your Code Cortex admin dashboard.</p>
+      <p>Sign in to access your Code Cortex admin dashboard. Manage projects, track progress, and oversee all development activities from one centralized platform.</p>
     </div>
     
     <div class="login-right">
@@ -230,6 +397,13 @@
       
       <div class="login-form">
         <h2>Admin Login</h2>
+        
+        <!-- Demo Credentials Box -->
+        <div class="demo-credentials">
+          <h4>Demo Credentials</h4>
+          <p><strong>Email:</strong> admin@codecortex.com</p>
+          <p><strong>Password:</strong> admin123</p>
+        </div>
         
         <form id="loginForm">
           <div class="form-group">
@@ -242,41 +416,268 @@
             <input type="password" id="password" placeholder="Enter your password" required>
           </div>
           
+          <div class="remember-forgot">
+            <div class="remember-me">
+              <input type="checkbox" id="remember">
+              <label for="remember">Remember me</label>
+            </div>
+            <a href="#" class="forgot-password" onclick="showForgotPassword()">Forgot Password?</a>
+          </div>
+          
           <button type="submit" class="login-btn" id="loginButton">
-            Login
+            <span id="buttonText">Login</span>
+            <div class="loading" id="loadingSpinner" style="display: none;"></div>
           </button>
         </form>
         
         <div class="error-message" id="errorMessage"></div>
         <div class="success-message" id="successMessage"></div>
+        
+        <div class="signup-link">
+          <p>Need an admin account? <a href="#" onclick="showSignup()">Contact Super Admin</a></p>
+        </div>
+
+        <!-- Backend Options Section -->
+        <div class="backend-options">
+          <h3>Backend Integration Options</h3>
+          <div class="backend-buttons">
+            <button class="backend-btn" onclick="testLocalStorage()">Test Local Storage</button>
+            <button class="backend-btn" onclick="testSession()">Test Session</button>
+            <button class="backend-btn" onclick="simulatePHP()">Simulate PHP</button>
+            <button class="backend-btn" onclick="simulateNodeJS()">Simulate Node.js</button>
+            <button class="backend-btn" onclick="clearStorage()">Clear Storage</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
+    // Default admin credentials
+    const ADMIN_CREDENTIALS = {
+      email: "admin@codecortex.com",
+      password: "admin123"
+    };
+
+    // DOM Elements
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const loginButton = document.getElementById('loginButton');
+    const buttonText = document.getElementById('buttonText');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const errorMessage = document.getElementById('errorMessage');
+    const successMessage = document.getElementById('successMessage');
+
+    // Initialize - Check if user is already logged in
+    document.addEventListener('DOMContentLoaded', function() {
+      checkExistingLogin();
+      // Pre-fill with demo credentials for testing
+      emailInput.value = ADMIN_CREDENTIALS.email;
+      passwordInput.value = ADMIN_CREDENTIALS.password;
+    });
+
+    // Form submission handler
+    loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
+      handleLogin();
+    });
+
+    // Main login function
+    function handleLogin() {
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
       
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const errorMessage = document.getElementById('errorMessage');
-      const successMessage = document.getElementById('successMessage');
+      // Show loading state
+      setLoadingState(true);
+      clearMessages();
+
+      // Validate inputs
+      if (!email || !password) {
+        showError('Please fill in all fields');
+        setLoadingState(false);
+        return;
+      }
+
+      // Simulate API call delay
+      setTimeout(() => {
+        // Check credentials
+        if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
+          // Successful login
+          handleSuccessfulLogin(email);
+        } else {
+          // Failed login
+          showError('Invalid email or password. Try: admin@codecortex.com / admin123');
+          setLoadingState(false);
+        }
+      }, 1500);
+    }
+
+    // Handle successful login
+    function handleSuccessfulLogin(email) {
+      // Store login session
+      const loginData = {
+        email: email,
+        timestamp: new Date().toISOString(),
+        sessionId: generateSessionId()
+      };
       
-      // Simple validation
-      if (email === 'admin@codecortex.com' && password === 'admin123') {
-        successMessage.textContent = 'Login successful! Redirecting...';
-        successMessage.style.display = 'block';
-        errorMessage.style.display = 'none';
-        
-        setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 1000);
+      // Store in localStorage (simulates backend session)
+      localStorage.setItem('codecortex_admin_session', JSON.stringify(loginData));
+      localStorage.setItem('codecortex_admin_logged_in', 'true');
+      
+      // Store in sessionStorage (alternative approach)
+      sessionStorage.setItem('admin_session', JSON.stringify(loginData));
+      
+      showSuccess('Login successful! Redirecting...');
+      
+      // Redirect to main page after delay
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1000);
+    }
+
+    // Check if user is already logged in
+    function checkExistingLogin() {
+      const isLoggedIn = localStorage.getItem('codecortex_admin_logged_in');
+      const sessionData = localStorage.getItem('codecortex_admin_session');
+      
+      if (isLoggedIn === 'true' && sessionData) {
+        try {
+          const session = JSON.parse(sessionData);
+          const sessionAge = new Date() - new Date(session.timestamp);
+          const maxSessionAge = 24 * 60 * 60 * 1000; // 24 hours
+          
+          if (sessionAge < maxSessionAge) {
+            showSuccess('Welcome back! Redirecting...');
+            setTimeout(() => {
+              window.location.href = 'index.html';
+            }, 1000);
+          } else {
+            // Session expired
+            localStorage.removeItem('codecortex_admin_session');
+            localStorage.removeItem('codecortex_admin_logged_in');
+          }
+        } catch (e) {
+          console.error('Error parsing session data:', e);
+        }
+      }
+    }
+
+    // Backend simulation functions
+    function testLocalStorage() {
+      const testData = {
+        test: 'success',
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('backend_test', JSON.stringify(testData));
+      showSuccess('LocalStorage test successful! Data stored.');
+    }
+
+    function testSession() {
+      const sessionData = {
+        user: 'admin',
+        role: 'administrator',
+        loginTime: new Date().toISOString()
+      };
+      sessionStorage.setItem('user_session', JSON.stringify(sessionData));
+      showSuccess('Session storage test successful!');
+    }
+
+    function simulatePHP() {
+      showSuccess('PHP backend simulation: Login would be processed via PHP server');
+      // In a real PHP implementation, you would:
+      // 1. Send POST request to login.php
+      // 2. PHP would verify against database
+      // 3. Return JSON response
+      // 4. Set PHP session cookies
+    }
+
+    function simulateNodeJS() {
+      showSuccess('Node.js backend simulation: JWT tokens would be issued');
+      // In a real Node.js implementation, you would:
+      // 1. Send POST to /api/auth/login
+      // 2. Server verifies and returns JWT
+      // 3. Store JWT in localStorage or cookies
+      // 4. Use JWT for authenticated requests
+    }
+
+    function clearStorage() {
+      localStorage.clear();
+      sessionStorage.clear();
+      showSuccess('All storage cleared! You will need to login again.');
+    }
+
+    // Utility functions
+    function setLoadingState(isLoading) {
+      if (isLoading) {
+        loginButton.disabled = true;
+        buttonText.textContent = 'Authenticating';
+        loadingSpinner.style.display = 'inline-block';
       } else {
-        errorMessage.textContent = 'Invalid email or password. Use: admin@codecortex.com / admin123';
-        errorMessage.style.display = 'block';
-        successMessage.style.display = 'none';
+        loginButton.disabled = false;
+        buttonText.textContent = 'Login';
+        loadingSpinner.style.display = 'none';
+      }
+    }
+
+    function showError(message) {
+      errorMessage.textContent = message;
+      errorMessage.style.display = 'block';
+      successMessage.style.display = 'none';
+    }
+
+    function showSuccess(message) {
+      successMessage.textContent = message;
+      successMessage.style.display = 'block';
+      errorMessage.style.display = 'none';
+    }
+
+    function clearMessages() {
+      errorMessage.style.display = 'none';
+      successMessage.style.display = 'none';
+    }
+
+    function generateSessionId() {
+      return 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+    }
+
+    function showForgotPassword() {
+      alert('Please contact the system administrator at codecortexpk@gmail.com to reset your password.');
+    }
+
+    function showSignup() {
+      alert('Admin accounts can only be created by existing administrators. Please contact codecortexpk@gmail.com for access.');
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Ctrl + H to go home
+      if (e.ctrlKey && e.key === 'h') {
+        e.preventDefault();
+        window.location.href = 'index.html';
+      }
+      
+      // Escape key to clear form
+      if (e.key === 'Escape') {
+        loginForm.reset();
+        clearMessages();
       }
     });
+
+    // Enhanced security: Clear sensitive data on page unload
+    window.addEventListener('beforeunload', function() {
+      // In a real application, you might want to clear sensitive data
+      // passwordInput.value = '';
+    });
+
+    // Auto-focus on email input
+    window.addEventListener('load', function() {
+      emailInput.focus();
+    });
   </script>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </body>
 </html>
