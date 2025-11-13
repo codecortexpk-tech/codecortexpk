@@ -1,96 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Login - Code Cortex</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #2b2e3d, #1c1e26);
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+// server.js
+const express = require('express');
+const session = require('express-session');
+const app = express();
+
+app.use(express.json());
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.post('/api/login', (req, res) => {
+    const { email, password } = req.body;
+    
+    if (email === 'admin@codecortex.com' && password === 'admin123') {
+        req.session.admin = { email, loggedIn: true };
+        res.json({ success: true, message: 'Login successful' });
+    } else {
+        res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
-
-    .container {
-      background: #2f3243;
-      padding: 2rem 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-    }
-
-    h2 {
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-      color: #ffe27d;
-    }
-
-    input[type="email"],
-    input[type="password"] {
-      width: 100%;
-      padding: 0.7rem;
-      margin: 0.5rem 0;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    .btn {
-      margin-top: 1rem;
-      padding: 0.7rem;
-      width: 100%;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      background-color: #ffe27d;
-      color: #000;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #ffd449;
-    }
-
-    .error {
-      color: red;
-      margin-top: 0.5rem;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <h2>Admin Login</h2>
-    <input type="email" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Password" />
-    <button class="btn" onclick="login()">Login</button>
-    <div class="error" id="errorMsg"></div>
-  </div>
-
-  <script>
-    function login() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      // Basic hardcoded login check
-      const validEmail = "admin@codecortex.com";
-      const validPassword = "admin123";
-
-      if (email === validEmail && password === validPassword) {
-        window.location.href = "index.html";
-      } else {
-        document.getElementById("errorMsg").textContent = "Invalid email or password";
-      }
-    }
-  </script>
-</body>
-</html>
+});
