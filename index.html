@@ -229,6 +229,7 @@
       width: 80%;
     }
 
+    /* FIXED LOGIN BUTTON */
     .login-btn { 
       border: none; 
       padding: 10px 20px; 
@@ -241,6 +242,9 @@
       color: #000; 
       white-space: nowrap;
       transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
     }
     
     .login-btn:hover,
@@ -636,7 +640,7 @@
     }
     
     .benefits-list li:before {
-      content: '?';
+      content: '✓';
       position: absolute;
       left: 0;
       color: var(--success);
@@ -824,9 +828,11 @@
         <a href="#contact">Contact</a>
       </div>
     </nav>
-    <button class="login-btn" onclick="window.location.href='login.html'" aria-label="Admin login">
+    
+    <!-- FIXED LOGIN BUTTON -->
+    <a href="login.html" class="login-btn" aria-label="Admin login">
       Admin Login
-    </button>
+    </a>
   </header>
 
   <!-- Main Content -->
@@ -923,7 +929,7 @@
       </div>
     </section>
 
-    <!-- SOLUTION 3: Direct Contact Section -->
+    <!-- Contact Section -->
     <section id="contact" data-aos="fade-up">
       <h2>Get In Touch</h2>
       <p style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
@@ -1226,4 +1232,3 @@
   </script>
 </body>
 </html>
-
